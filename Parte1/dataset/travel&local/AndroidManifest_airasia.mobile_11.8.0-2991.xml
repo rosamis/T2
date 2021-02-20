@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" compileSdkVersion="29" compileSdkVersionCodename="10" package="com.airasia.mobile" platformBuildVersionCode="29" platformBuildVersionName="10" versionName="11.8.0">
+    <uses-permission name="android.permission.INTERNET"/>
+    <uses-permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission name="android.permission.GET_TASKS"/>
+    <uses-permission name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission name="android.permission.NFC"/>
+    <uses-feature name="android.hardware.nfc.hce" required="false"/>
+    <uses-permission name="android.permission.RECORD_AUDIO"/>
+    <uses-permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission name="org.simalliance.openmobileapi.SMARTCARD"/>
+    <uses-permission name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission name="android.permission.CAMERA"/>
+    <uses-permission name="android.permission.VIBRATE"/>
+    <uses-permission name="android.permission.READ_CONTACTS"/>
+    <uses-feature name="android.hardware.camera" required="false"/>
+    <uses-feature name="android.hardware.camera.front" required="false"/>
+    <uses-feature name="android.hardware.camera.autofocus" required="false"/>
+    <uses-feature name="android.hardware.camera.flash" required="false"/>
+    <uses-feature name="android.permission.BLUETOOTH" required="false"/>
+    <uses-feature name="android.permission.CHANGE_WIFI_STATE" required="false"/>
+    <uses-permission name="android.permission.GET_ACCOUNTS"/>
+    <uses-feature name="android.hardware.telephony" required="false"/>
+    <uses-permission name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission name="android.permission.READ_CALENDAR"/>
+    <uses-permission name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.USE_FINGERPRINT"/>
+    <permission name="com.airasia.mobile.com.airasia.mobile.permission.MIPUSH_RECEIVE" protectionLevel="signature"/>
+    <uses-permission name="com.airasia.mobile.com.airasia.mobile.permission.MIPUSH_RECEIVE"/>
+    <uses-permission name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.airasia.mobile.com.airasia.mobile"/>
+    <permission name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.airasia.mobile.com.airasia.mobile" protectionLevel="signature"/>
+    <uses-feature name="android.hardware.fingerprint" required="false"/>
+    <uses-permission name="android.permission.WAKE_LOCK"/>
+    <uses-feature name="android.hardware.sensor.accelerometer" required="false"/>
+    <uses-permission name="android.permission.FLASHLIGHT"/>
+    <supports-screens anyDensity="true" largeScreens="true" normalScreens="true" resizeable="true" smallScreens="true" xlargeScreens="true"/>
+    <uses-permission name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature name="android.hardware.touchscreen"/>
+    <uses-permission name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.airasia.mobile"/>
+    <permission name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.airasia.mobile" protectionLevel="signature"/>
+    <uses-permission name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission name="android.permission.BLUETOOTH"/>
+    <uses-permission name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature glEsVersion="0x00020000" required="true"/>
+    <uses-feature name="android.hardware.microphone" required="false"/>
+    <application allowBackup="false" android:icon="@mipmap/ic_china_new_year" appComponentFactory="androidx.core.app.CoreComponentFactory" fullBackupContent="false" hardwareAccelerated="true" label="@string/2131951822" largeHeap="true" name=".GlobalApplication" networkSecurityConfig="@xml/2132148228" persistent="true" requestLegacyExternalStorage="true" resizeableActivity="true" roundIcon="@mipmap/ic_china_new_year_round" supportsRtl="true" theme="@style/2132017176">
+        <activity android:name=".NewSignupActivity" label="@string/2131951822" screenOrientation="portrait" theme="@style/2132017180" windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="stgsso-widget.airasia.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChatMemberActivity" screenOrientation="portrait" theme="@style/2132017180" windowSoftInputMode="adjustNothing"/>
+        <activity android:name=".ChatRoomDetailactivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".MainActivity2" configChanges="locale|orientation|screenSize" exported="true" label="@string/2131951822" launchMode="singleTask" screenOrientation="portrait" theme="@style/2132017452" windowSoftInputMode="adjustResize"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:name=".BookingActivity" label="@string/2131951822" screenOrientation="portrait"/>
+        <activity android:name=".CheckDetailsActivity" screenOrientation="portrait"/>
+        <activity android:name=".InboxPagerActivity" screenOrientation="portrait" theme="@style/2132017179"/>
+        <activity android:name=".LoginActivity" label="@string/2131951822" screenOrientation="portrait" theme="@style/2132017451" windowSoftInputMode="adjustPan"/>
+        <activity android:name=".MyProfileActivity" label="@string/2131951822" screenOrientation="portrait"/>
+        <activity android:name=".SaveUserNameActivity" label="@string/2131951822" screenOrientation="portrait" windowSoftInputMode="stateHidden"/>
+        <activity android:name=".SplashScreenActivity" configChanges="locale" label="@string/2131951822" screenOrientation="portrait" theme="@style/2132017599">
+            <intent-filter>
+                <action android:name="com.airasia.mobile.MESSAGE"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="optly2472360027"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="aa.com" android:pathPrefix="/mmb" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.com" android:pathPrefix="/mmb" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="airasia"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" resource="@xml/2132148232"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="v.airasiapp.com" android:pathPrefix="/flightsearch" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile.airasia.com" android:pathPrefix="/searchflight" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia-staging.onelink.me" android:pathPrefix="/HhNQ" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.onelink.me" android:pathPrefix="/F4uy" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.onelink.me" android:pathPrefix="/0bgb" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.com" android:pathPrefix="/hotel" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.airasia.com" android:pathPrefix="/hotel" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.com" android:pathPrefix="/hotel" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.airasia.com" android:pathPrefix="/hotel" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.com" android:pathPrefix="/snap" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.airasia.com" android:pathPrefix="/snap" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airasia.com" android:pathPrefix="/snap" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.airasia.com" android:pathPrefix="/snap" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="stgsso-widget.airasia.com" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="flightsearch" android:scheme="airasia"/>
+                <data android:host="notifications" android:scheme="airasia"/>
+                <data android:host="searchflight" android:scheme="airasia"/>
+                <data android:host="mmb-flights" android:scheme="airasia"/>
+                <data android:host="mmb-hotels" android:scheme="airasia"/>
+                <data android:host="mmb" android:scheme="airasia"/>
+                <data android:host="nickname" android:scheme="airasia"/>
+                <data android:host="checkin" android:scheme="airasia"/>
+                <data android:host="life" android:scheme="airasia"/>
+                <data android:host="chat" android:scheme="airasia"/>
+                <data android:host="game" android:scheme="airasia"/>
+                <data android:host="inappbrowser" android:scheme="airasia"/>
+                <data android:host="deals" android:scheme="airasia"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AcknowledgeActivity" label="@string/2131951822" screenOrientation="portrait"/>
+        <activity android:name=".CustomActivity" label="@string/2131951822" screenOrientation="portrait"/>
+        <activity android:name=".SearchStateActivity" screenOrientation="portrait"/>
+        <activity android:name=".SSRListingActivity" screenOrientation="portrait"/>
+        <activity android:name=".WebViewActivity" screenOrientation="portrait"/>
+        <activity android:name=".SpecialAssistanceOverViewActivity" label="SpecialAssistance" screenOrientation="portrait" windowSoftInputMode="adjustPan"/>
+        <activity android:name=".CustomWebViewActivity" screenOrientation="portrait"/>
+        <activity android:name=".CaptchaActivity" screenOrientation="portrait"/>
+        <activity android:name=".BigMemberLookActivity" screenOrientation="portrait"/>
+        <activity android:name=".ContactPersonActivity" screenOrientation="portrait"/>
+        <activity android:name=".AddInfantActivity" screenOrientation="portrait"/>
+        <activity android:name="io.card.payment.CardIOActivity" configChanges="keyboardHidden|orientation" hardwareAccelerated="true"/>
+        <activity android:name="io.card.payment.DataEntryActivity" label="Card Detail" screenOrientation="portrait" theme="@style/2132017176"/>
+        <activity android:name="com.facebook.FacebookActivity" configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" label="@string/2131951822" theme="@style/2132018041"/>
+        <activity android:name="com.airasia.ui.chat.ChatActivityV2" screenOrientation="portrait" theme="@style/2132017180" windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.alipay.sdk.app.H5PayActivity" configChanges="keyboardHidden|navigation|orientation" exported="false" screenOrientation="behind"/>
+        <activity android:name="com.alipay.sdk.auth.AuthActivity" configChanges="keyboardHidden|navigation|orientation" exported="false" screenOrientation="behind"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 241246239643612"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDzKtB5Kcb59_lQzNMcnsO9PVvMCKT9b18"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <provider authorities="com.facebook.app.com.airasia.mobile.FacebookContentProvider241246239643612" exported="true" name="com.facebook.FacebookContentProvider"/>
+        <activity android:name=".Maybank2uWebScreen" theme="@style/2132017726"/>
+        <activity android:name="com.google.android.gms.tagmanager.PreviewActivity" label="@string/2131951822" noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.airasia.mobile"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <service enabled="true" name="com.xiaomi.push.service.XMPushService" process=":pushservice"/>
+        <service enabled="true" exported="false" name="com.xiaomi.push.service.XMJobService" permission="android.permission.BIND_JOB_SERVICE" process=":pushservice"/>
+        <service enabled="true" exported="true" name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service enabled="true" name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver exported="true" name="com.xiaomi.push.service.receivers.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver exported="false" name="com.xiaomi.push.service.receivers.PingReceiver" process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver name="com.baidu.android.pushservice.PushServiceReceiver" process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW"/>
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver name="com.baidu.android.pushservice.RegistrationReceiver" process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD"/>
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service exported="true" name="com.baidu.android.pushservice.PushService" process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service exported="true" name="com.baidu.android.pushservice.CommandService"/>
+        <provider authorities="com.airasia.mobile.com.airasia.mobile.bdpush" exported="true" name="com.baidu.android.pushservice.PushInfoProvider" protectionLevel="signature" writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.airasia.mobile"/>
+        <receiver exported="true" name="com.google.android.gms.analytics.CampaignTrackingReceiver" permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver name=".PushReceiverBaidu">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <service name="com.airasia.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="AirAsia"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" resource="@drawable/2131231652"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" resource="@color/2131099798"/>
+        <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="464-WK4-685Z"/>
+        <meta-data android:name="CLEVERTAP_TOKEN" android:value="430-464"/>
+        <meta-data android:name="CLEVERTAP_REGION" android:value="sg1"/>
+        <meta-data android:name="CLEVERTAP_INAPP_EXCLUDE" android:value="SplashScreenActivity"/>
+        <receiver enabled="true" exported="false" name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service enabled="true" exported="false" name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service name="com.google.android.gms.tagmanager.InstallReferrerService"/>
+        <receiver exported="true" name="com.google.android.gms.tagmanager.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <uses-library name="org.simalliance.openmobileapi" required="false"/>
+        <activity android:name=".WebViewCNActivity"/>
+        <activity android:name=".ChatAgreementActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".CameraActivity" theme="@style/2132017180"/>
+        <activity android:name=".MyFacesActivity" label="@string/2131954830" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".FacesProgressUpdateActivity" label="@string/2131954830" theme="@style/2132017180" windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ChatAnnouncementActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".ChatImageActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".JoinChatActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name=".AvaAdaEmbedActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.react.RootReactActivity" launchMode="singleTask" screenOrientation="portrait" theme="@style/2132017180"/>
+        <uses-library name="org.apache.http.legacy" required="false"/>
+        <receiver enabled="true" exported="false" name="com.clevertap.android.sdk.CTPushNotificationReceiver"/>
+        <receiver enabled="true" exported="false" name="com.airasia.service.XiaomiPush"/>
+        <service exported="false" name="com.clevertap.android.sdk.CTNotificationIntentService">
+            <intent-filter>
+                <action android:name="com.clevertap.PUSH_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider authorities="com.airasia.mobile.provider" exported="false" grantUriPermissions="true" name="androidx.core.content.FileProvider">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132148226"/>
+        </provider>
+        <activity android:name="com.airasia.ui.games.GamesActivity" configChanges="keyboardHidden|orientation|screenLayout|screenSize" theme="@style/2132017446"/>
+        <activity android:name="com.airasia.ui.nickname.DisplayNameActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.greeting.GreetingActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.search.user.SearchUserActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.contacts.ContactListActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.conversation.ConversationActivity" screenOrientation="portrait" theme="@style/2132017180" windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.airasia.ui.games.GamesListActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.communities.CommunitiesListActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.conversation.settings.ConversationSettingsActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.menu.BigPayCheckoutActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.conversation.MessageRequestActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.chat.ChatSettingsActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.ui.webview.WebViewActivity" screenOrientation="portrait" theme="@style/2132017845"/>
+        <activity android:name="com.airasia.account.AccountActivity" screenOrientation="portrait" theme="@style/2132017152"/>
+        <activity android:name="com.airasia.account.TravelDocActivity" screenOrientation="portrait" theme="@style/2132017152"/>
+        <activity android:name="com.airasia.account.AddressBookActivity" screenOrientation="portrait" theme="@style/2132017184"/>
+        <receiver exported="true" name="com.appsflyer.SingleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.airasia.faces.ui.main.FacesMainActivity" screenOrientation="portrait" theme="@style/2132017176"/>
+        <activity android:name="com.airasia.sso.otp.OtpActivity" screenOrientation="portrait" theme="@style/2132017180" windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.airasia.genericcountrylisting.CountryListingActivity" screenOrientation="portrait" theme="@style/2132017180"/>
+        <activity android:name="com.airasia.core.ui.countryCodeSearch.DialingCodeSearchActivity" screenOrientation="portrait" theme="@style/2132017484"/>
+        <activity android:name="com.airasia.core.ui.countrySearch.CountrySearchActivity" screenOrientation="portrait" theme="@style/2132017484"/>
+        <activity android:name="support.ada.embed.ui.AdaEmbedActivity"/>
+        <activity android:name="com.airasia.scandocument.ui.ScanDocumentActivity" screenOrientation="portrait" theme="@style/2132017450"/>
+        <activity android:name="com.clevertap.android.sdk.InAppNotificationActivity" configChanges="keyboardHidden" theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.clevertap.android.sdk.CTInboxActivity" configChanges="keyboardHidden" theme="@style/2132017710"/>
+        <service exported="false" name="com.clevertap.android.sdk.CTBackgroundIntentService" permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.clevertap.BG_EVENT"/>
+            </intent-filter>
+        </service>
+        <service exported="false" name="com.clevertap.android.sdk.CTBackgroundJobService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.LivenessActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.FaceVerificationActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.ProcessScannedDocumentActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.BaseActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.StartActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <activity android:name="aero.ies.passengeridentity.mobilesdk.gui.activities.CheckDocumentAuthenticityActivity" screenOrientation="portrait" theme="@style/2132017477"/>
+        <service name="aero.ies.passengeridentity.mobilesdk.oauth.TokenService"/>
+        <provider authorities="com.airasia.mobile.fileprovider" exported="false" grantUriPermissions="true" name="com.reactnativecommunity.webview.RNCWebViewFileProvider">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132148226"/>
+        </provider>
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity" exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.airasia.mobile" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <provider authorities="com.airasia.mobile.ekosdk.init.provider" exported="false" initOrder="10000" name="com.ekoapp.ekosdk.internal.init.EkoSdkInitProvider"/>
+        <service enabled="true" exported="false" name="net.gotev.uploadservice.UploadService"/>
+        <activity android:name="com.regula.documentreader.api.CaptureActivity2" screenOrientation="portrait" theme="@style/2132017726"/>
+        <activity android:name="com.regula.documentreader.api.RfidActivity" launchMode="singleTask" theme="@style/2132017726"/>
+        <activity android:name="com.regula.documentreader.api.CropImageActivity" theme="@style/2132017726"/>
+        <activity android:name="com.regula.common.CameraPermissionsActivity" screenOrientation="portrait" theme="@style/2132017726"/>
+        <activity android:name="com.alipay.sdk.app.H5AuthActivity" configChanges="keyboardHidden|navigation|orientation" exported="false" screenOrientation="behind"/>
+        <activity android:name="com.alipay.sdk.app.PayResultActivity" configChanges="keyboardHidden|navigation|orientation" exported="true" launchMode="singleInstance" screenOrientation="portrait" theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service enabled="true" exported="false" name="com.google.android.gms.analytics.AnalyticsJobService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <service directBootAware="true" exported="false" name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter priority="-4">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service directBootAware="true" exported="false" name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.iid.Registrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.ml.vision.VisionRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider authorities="com.airasia.mobile.firebaseperfprovider" exported="false" initOrder="101" name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <activity android:name="com.google.android.gms.appinvite.PreviewActivity" exported="true" theme="@style/2132017728">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.google.zxing.client.android.CaptureActivity" clearTaskOnLaunch="true" configChanges="keyboardHidden" stateNotNeeded="true" theme="@style/2132017410" windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="me.sudar.zxing.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.sudar.me" android:path="/projects/zxing-orient/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="zxing.appspot.com" android:path="/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.com" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.co.uk" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="scan" android:path="/" android:scheme="zxing"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.google.zxing.client.android.encode.EncodeActivity" stateNotNeeded="true">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.ENCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="me.sudar.zxing.ENCODE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/x-vcard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <receiver name="com.ekoapp.push.EkoBaiduMessageReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE"/>
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
+            </intent-filter>
+        </receiver>
+        <provider authorities="com.airasia.mobile.push.init.provider" exported="false" initOrder="10000" name="com.ekoapp.push.PushInitProvider"/>
+        <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" excludeFromRecents="true" exported="false" theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service exported="true" name="com.google.android.gms.auth.api.signin.RevocationBoundService" permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="12451000"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider authorities="com.airasia.mobile.workmanager-init" directBootAware="false" exported="false" multiprocess="true" name="androidx.work.impl.WorkManagerInitializer"/>
+        <service directBootAware="false" enabled="@bool/2131034116" exported="false" name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service directBootAware="false" enabled="@bool/2131034118" exported="true" name="androidx.work.impl.background.systemjob.SystemJobService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <service directBootAware="false" enabled="true" exported="false" name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver directBootAware="false" enabled="true" exported="false" name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver directBootAware="false" enabled="false" exported="false" name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver directBootAware="false" enabled="false" exported="false" name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver directBootAware="false" enabled="false" exported="false" name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver directBootAware="false" enabled="false" exported="false" name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver directBootAware="false" enabled="false" exported="false" name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver directBootAware="false" enabled="@bool/2131034116" exported="false" name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <provider authorities="com.airasia.mobile.FacebookInitProvider" exported="false" name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver exported="false" name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service exported="false" name="androidx.room.MultiInstanceInvalidationService"/>
+        <service enabled="true" exported="false" name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" exported="true" noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.airasia.mobile"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver exported="true" name="com.google.firebase.iid.FirebaseInstanceIdReceiver" permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementJobService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" exported="false" theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider authorities="com.airasia.mobile.firebaseinitprovider" directBootAware="true" exported="false" initOrder="100" name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:name="com.google.android.gms.ads.AdActivity" configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" exported="false" theme="@android:style/Theme.Translucent"/>
+        <provider authorities="com.airasia.mobile.mobileadsinitprovider" exported="false" initOrder="100" name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <provider authorities="com.airasia.mobile.lifecycle-process" exported="false" multiprocess="true" name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service exported="false" name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data name="backend:com.google.android.datatransport.cct.CctBackendFactory" value="cct"/>
+        </service>
+        <service exported="false" name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver exported="false" name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

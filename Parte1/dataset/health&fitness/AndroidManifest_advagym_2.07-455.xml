@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.sonymobile.connectedgym" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.sonymobile.connectedgym.App" android:networkSecurityConfig="@xml/network_security_config" android:screenOrientation="portrait" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <service android:name="com.sonymobile.connectedgym.nfc.NfcPollService"/>
+        <service android:exported="false" android:name="com.sonymobile.connectedgym.firebase.MyFirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.sonymobile.connectedgym.AppBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.sonymobile.connectedgym.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.sonymobile.connectedgym.GenericFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.sonymobile.connectedgym.ui.landing.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="action_tag_status"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="devpump.advagymsolutions.com"/>
+                <data android:pathPrefix="/gym-invite-link"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="tool.advagymsolutions.com"/>
+                <data android:pathPrefix="/gym-invite-link"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="prod.connectedgym.incubation.io"/>
+                <data android:pathPrefix="/app"/>
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gym-invite-link"/>
+                <data android:scheme="advagym"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="app-link"/>
+                <data android:scheme="advagym"/>
+            </intent-filter>
+        </activity>
+        <activity android:label=" " android:name="com.sonymobile.connectedgym.nfc.NfcDispatchActivity" android:theme="@style/Base.AppTheme.Transparent">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <data android:mimeType="application/vnd.sony.gym"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/message_header" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.inbox.InboxActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/message_header" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.inbox.MessageThreadActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/tab_title_stats" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.ExerciseStatsSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/tab_title_stats" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.ProgramStatsSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/tab_title_stats" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.WorkoutStatisticsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/tab_title_stats" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.PlanStatisticsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/tab_title_stats" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.AllStatsSummaryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/new_workout" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.currentsession.CurrentWorkoutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/exercise_result_info_text" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.exercise.CurrentExerciseActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/edit_program" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.currentsession.EditProgramActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/edit_exercise" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.currentsession.EditExerciseActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/create_program" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.currentsession.CreateNewProgramActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.currentsession.PauseWorkoutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_machine_connected" android:name="com.sonymobile.connectedgym.ui.machine.MachineConnectedActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.NewMembershipActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.LoginWebViewActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme.White" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/verification_info_text" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.VerifyMailActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme"/>
+        <activity android:label="@string/about_item_terms_of_use" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.TermsOfUseActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme"/>
+        <activity android:label="@string/setting_connections" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.settings.ConnectionActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/instructions" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.exercise.CurrentExerciseInstructionActivity" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/instructions" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.exercise.VideoActivity" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/user_notes" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.exercise.UserSettingsActivity" android:theme="@style/Base.AppTheme.Translucent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.statistics.SortStatisticsActivity" android:theme="@style/Base.AppTheme.Translucent"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.inbox.MessageMenuActivity" android:theme="@style/Base.AppTheme.Transparent"/>
+        <activity android:label="@string/setting_achievements" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.settings.SettingsShowAchievementActivity" android:theme="@style/Base.AppTheme.Translucent"/>
+        <activity android:label="@string/setting_trainers" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.settings.MyPTSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_my_gym_info" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.settings.MyGymInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/title_login" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.LoginPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/instructions" android:name="com.sonymobile.connectedgym.ui.machine.ShowPuckInfoActivity" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/instructions" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.machine.PuckActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/instructions" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.machine.PuckExerciseInstructionActivity" android:theme="@style/AppTheme"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.ClosedGymActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme.Transparent"/>
+        <activity android:label=" " android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.FindAdvagymActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme"/>
+        <activity android:label="@string/create_account" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.SignUpActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_settings" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.settings.SettingsActivity" android:parentActivityName="com.sonymobile.connectedgym.ui.currentsession.CurrentWorkoutActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.sonymobile.connectedgym.ui.currentsession.CurrentWorkoutActivity"/>
+        </activity>
+        <activity android:label="@string/instructions" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.tutorial.ExerciseTutorialActivity" android:parentActivityName="com.sonymobile.connectedgym.ui.landing.ChooseTypeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.sonymobile.connectedgym.ui.landing.ChooseTypeActivity"/>
+        </activity>
+        <activity android:label="@string/select_exercise" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.exercise.AddExerciseActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.ChooseTypeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/btn_get_started" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.OnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/invitation_accept_btn" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.InvitationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_data_sharing_gym" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.DataSharingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/settings_site_status_premium" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.landing.WhitelistedGymActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/tab_program" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.program.SelectCategoryActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/hide_gym_header" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.program.HideGymActivity" android:screenOrientation="portrait" android:theme="@style/Base.AppTheme.Transparent"/>
+        <activity android:label="@string/select_exercise" android:name="com.sonymobile.connectedgym.ui.machine.ChooseOneOfMultipleExercisesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_debug" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.debug.DebugActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_debug" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.debug.DebugListRealmObjectsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_debug" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.debug.DebugChooseRealmObjectActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:label="@string/setting_debug" android:launchMode="singleTask" android:name="com.sonymobile.connectedgym.ui.debug.DebugListAchievementCategoriesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <provider android:authorities="com.sonymobile.connectedgym.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.sonymobile.connectedgym.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.sonymobile.connectedgym.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.sonymobile.connectedgym.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+    </application>
+</manifest>

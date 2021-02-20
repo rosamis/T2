@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.mindfulness.aware" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="com.mindfulness.aware.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mindfulness.aware.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.mindfulness.aware.AwareApplication" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <provider android:authorities="com.mindfulness.aware.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="com.onesignal.BadgeCount" android:value="DISABLE"/>
+        <meta-data android:name="com.novoda.downloadmanager.MaxConcurrentDownloads" android:value="@integer/max_concurrent_downloads"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.mindfulness.aware.ui.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SplashNoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="j8cm3.app.goo.gl" android:scheme="http"/>
+                <data android:host="j8cm3.app.goo.gl" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:pathPrefix="/mwrl" android:scheme="awaremeditationapp"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="awaremeditationapp.com" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.awaremeditationapp.com" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="awaremeditationapp.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.player.AudioPlayerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_invite" android:name="com.mindfulness.aware.ui.more.invite.InviteActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="screen" android:scheme="invite"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.home.energizers.EnergizerPlayerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.thefinestartist.finestwebview.FinestWebViewActivity" android:screenOrientation="portrait" android:theme="@style/FinestWebViewTheme.Light"/>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.BaseFragmentActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.meditation.courses.details.CourseDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.meditation.singles.details.SinglesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/app_name" android:name="com.mindfulness.aware.ui.meditation.singles.SinglesPlayerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_subscribe" android:name="com.mindfulness.aware.ui.subscribe.SubscriptionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/title_activity_ambient" android:name="com.mindfulness.aware.ui.tools.ambient.AmbientListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mindfulness.aware.ui.mindy.MindyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:keepScreenOn="true" android:name="com.mindfulness.aware.ui.tools.breathe.BreatheExerciseActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SplashNoActionBar"/>
+        <activity android:name="com.mindfulness.aware.ui.onboarding.ActivityOnboardingStories" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mindfulness.aware.ui.MasterCourseDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mindfulness.aware.ui.MasterProfileActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.mindfulness.aware.ui.VideoPlayerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.SplashNoActionBar"/>
+        <service android:enabled="true" android:exported="true" android:name="com.mindfulness.aware.services.SessionPlayService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.mindfulness.aware.services.EnergizerPlayService"/>
+        <service android:name="com.mindfulness.aware.services.MediaPlayerService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.mindfulness.aware.ui.tools.ambient.AudioService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <service android:name="com.mindfulness.aware.services.SnoozeService"/>
+        <service android:name="com.mindfulness.aware.services.FirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.mindfulness.aware.services.GoogleFitService"/>
+        <service android:name="com.mindfulness.aware.ui.meditation.singles.SinglesPlayerService"/>
+        <service android:exported="false" android:name="com.mindfulness.aware.receiver.NotificationExtenderOneSignal" android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.mindfulness.aware.receiver.SessionNotificationBroadcast">
+            <intent-filter>
+                <action android:name="com.mindfulness.audioplayer.delete"/>
+                <action android:name="com.mindfulness.audioplayer.pause"/>
+                <action android:name="com.mindfulness.audioplayer.next"/>
+                <action android:name="com.mindfulness.audioplayer.play"/>
+                <action android:name="com.mindfulness.audioplayer.previous"/>
+                <action android:name="com.mindfulness.audioplayer.showplayer"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mindfulness.aware.receiver.EnergizersNotificationBroadcast">
+            <intent-filter>
+                <action android:name="com.mindfulness.audioplayer.energizer.delete"/>
+                <action android:name="com.mindfulness.audioplayer.energizer.pause"/>
+                <action android:name="com.mindfulness.audioplayer.energizer.next"/>
+                <action android:name="com.mindfulness.audioplayer.energizer.play"/>
+                <action android:name="com.mindfulness.audioplayer.energizer.previous"/>
+                <action android:name="com.mindfulness.audioplayer.energizer.showplayer"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mindfulness.aware.receiver.AlarmReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.mindfulness.aware.receiver.AmbienceBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.mindfulness.aware.ambience.START"/>
+                <action android:name="com.mindfulness.aware.ambience.CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.mindfulness.aware.receiver.DownloadManagerBatchCompletionReceiver">
+            <intent-filter>
+                <action android:name="com.novoda.downloadmanager.action.BATCH_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.mindfulness.aware.receiver.DownloadManagerBatchStartedReceiver">
+            <intent-filter>
+                <action android:name="com.novoda.downloadmanager.action.BATCH_FIRST_TIME_START"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.mindfulness.aware.receiver.DownloadManagerNotificationReceiver">
+            <intent-filter>
+                <action android:name="com.novoda.downloadmanager.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.mindfulness.aware.receiver.DeviceBootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="753fb80555654be49d72475d050c397b8bf8dd5f"/>
+        <meta-data android:name="onesignal_app_id" android:value="8ad21981-ed88-4527-9c13-c4dd4dd5525d"/>
+        <meta-data android:name="onesignal_google_project_number" android:value="str:351676927548"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.mindfulness.aware"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver"/>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.onesignal.NotificationRestoreService"/>
+        <receiver android:name="com.onesignal.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.onesignal.UpgradeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.mindfulness.aware"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.mindfulness.aware.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.mindfulness.aware.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.mindfulness.aware.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.mindfulness.aware.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <provider android:authorities="com.mindfulness.aware.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:name="com.novoda.downloadmanager.lib.SizeLimitActivity"/>
+        <service android:name="com.novoda.downloadmanager.lib.DownloadService"/>
+        <provider android:authorities="com.mindfulness.aware" android:exported="false" android:name="com.novoda.downloadmanager.lib.DownloadProvider"/>
+        <receiver android:exported="false" android:name="com.novoda.downloadmanager.lib.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmService"/>
+        <receiver android:exported="false" android:name="com.evernote.android.job.v14.PlatformAlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB"/>
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.evernote.android.job.JobBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.evernote.android.job.JobRescheduleService"/>
+    </application>
+</manifest>

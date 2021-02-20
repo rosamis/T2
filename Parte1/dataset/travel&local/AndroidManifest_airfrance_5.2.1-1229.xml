@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:sharedUserId="com.afklm.android.app.shareduserid.A67AE3AE6DD11A81C25F145FCFD65" package="com.airfrance.android.dinamoprd" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="com.airfrance.android.afpress.LAUNCH_PERMISSION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.airfrance.android.afpress.nightly.rct.LAUNCH_PERMISSION"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission android:name="com.airfrance.android.dinamoprd.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.airfrance.android.dinamoprd.provider.A4S_READ_DATABASE" android:protectionLevel="signature"/>
+    <permission android:name="com.airfrance.android.dinamoprd.provider.A4S_WRITE_DATABASE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.airfrance.android.dinamoprd.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.airfrance.android.dinamoprd.permission.A4S_SEND" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.airfrance.android.dinamoprd.permission.A4S_SEND"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="Air France" android:name="com.airfrance.android.totoro.TotoroApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/google_analytics_global_config"/>
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <meta-data android:name="AA_DB_NAME" android:value="totoro.db"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="1"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_api_key"/>
+        <meta-data android:name="com.google.firebase.ml.vision.DEPENDENCIES" android:value="ocr"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:label="Air France" android:launchMode="singleTask" android:name="com.airfrance.android.totoro.ui.activity.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HomePage" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.homepage.WelcomePageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HomePage"/>
+        <activity android:name="com.airfrance.android.totoro.tutorial.TutoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HomePage"/>
+        <activity android:launchMode="singleTask" android:name="com.airfrance.android.totoro.ui.activity.scheme.UrlSchemeActivity" android:noHistory="true" android:theme="@style/AppTheme.TranslucentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/app_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="adjust" android:scheme="@string/app_scheme"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/cgi-bin/AF/.*/.*/local/process/standard/rebooking/ValidateSearchPnrAction.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/cgi-bin/AF/.*/.*/local/process/standard/rebooking/ValidateSearchPnrAction.do"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/.*/.*/local/core/engine/echeckin/SearchInternetCheckInAction.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/.*/.*/local/core/engine/echeckin/SearchInternetCheckInAction.do"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/.*/.*/local/resainfovol/achat/reservation_achat.htm"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/.*/.*/local/resainfovol/achat/reservation_achat.htm"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/.*/.*/local/resainfovol/infovols/detailsVol.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/.*/.*/local/resainfovol/infovols/detailsVol.do"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/.*/.*/local/voyageurfrequent/enroll/StartEnrollFlyingBlue.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/.*/.*/local/voyageurfrequent/enroll/StartEnrollFlyingBlue.do"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/.*/.*/local/achat-reservation/meilleures-offres/tarif-promotion-vol.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/.*/.*/local/achat-reservation/meilleures-offres/tarif-promotion-vol.do"/>
+                <data android:host="www.airfrance.fr" android:pathPattern="/cgi-bin/AF/.*/.*/local/promos/FullOffersLandingPageAction.do"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/cgi-bin/AF/.*/.*/local/promos/FullOffersLandingPageAction.do"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.airfrance.android.totoro.ui.activity.dynamiclinks.DynamicLinkActivity" android:noHistory="true" android:theme="@style/AppTheme.TranslucentActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.airfrance.com" android:pathPattern="/dltotoro"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.homepage.LandingPageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.LandingPage"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.homepage.CheckVersionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.CheckVersionActivity"/>
+        <activity android:name="com.airfrance.android.totoro.logon.activity.LogonActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting_title" android:name="com.airfrance.android.totoro.settings.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.settings.activity.ReOptinOperationalNotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.mmb.ChooseDefaultCalendarActivityDialog" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.inbox.InboxNotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.inbox.InboxNotificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.generics.GenericListWithSearchViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.mmb.MMB1ImportReservationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.mmb.MMB3Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.mmb.AmenityListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.services.FlightServicesActivity" android:theme="@style/AppTheme.TranslucentActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.services.WeatherServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.services.WalkingTimelineServiceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.services.AdpMapActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.boardingpass.BoardingPassPagerActivity" android:theme="@style/AppTheme.TranslucentActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.boardingpass.FullBoardingPassZoomActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.ICIActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.checkin.activity.CCIActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCIS1Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCIS2Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISTermsAndConditionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISAlternativeFlightsForGoShowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISSelectPaxActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISPassengerInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISPassengerWithInfantInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISSelectDocumentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISDestinationAddressActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISDocumentsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISFQTVActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISDeliveryOptionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ncis.activity.NCISSendConfirmByEmailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.sscop.SSCOPTranferActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.sscop.SSCOPSummaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.ebt.NativeBookingFlowSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.flightstatus.activity.HAV1Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.flightstatus.activity.HAV2Activity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/hav_departure_date" android:name="com.airfrance.android.totoro.flightstatus.activity.HAV1CalendarActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.HAV1"/>
+        <activity android:label="@string/hav1_origin_title" android:name="com.airfrance.android.totoro.flightstatus.activity.HAV1StopoverActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.flightstatus.activity.HAV3Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.FlyingBlue3CardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.DashboardFB3Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.TransactionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.TransactionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.TotoroStopoverActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.OrcActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.dashboard.FlyingBlue3BenefitsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.contacts.activity.ContactActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.contacts.activity.ContactBaggageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.contacts.activity.ContactServiceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.contacts.activity.ContactAHLActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.homepage.ShareFlightActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.contacts.activity.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ancillary.hub.activity.AncillaryHubActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ancillary.section.activity.AncillarySectionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.afklm.mobile.android.travelapi.seatmap.ui.activity.SeatMapActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.airfrance.android.totoro.ancillary.bagpurchase.activity.BagPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.airfrance.android.totoro.ancillary.environmental.activity.EnvironmentalPurchaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.followmybag.activity.FMBUnhappyFlowActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.followmybag.activity.FMBHappyFlowActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.kidssolo.KidsSoloShareCameraActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:label="KidsSoloTimelineActivitySeconde" android:name="com.airfrance.android.totoro.ui.activity.kidssolo.KidsSoloTimelineActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.DialogActivity"/>
+        <activity android:name="com.airfrance.android.totoro.partners.activity.PartnersActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationDestinationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationTravelTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationAircraftActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationTravelDistanceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.ui.activity.gamification.GamificationBaggageActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.airfrance.android.totoro.checkout.activity.CheckoutPaymentMethodsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.totoro.checkout.activity.CheckoutWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.airfrance.android.scan.ui.ScanningActivity" android:screenOrientation="portrait"/>
+        <receiver android:label="@string/flight_information_appwidget" android:name="com.airfrance.android.totoro.ui.appwidget.FlightInformationAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/flight_information_appwidget_info"/>
+        </receiver>
+        <service android:name="com.airfrance.android.totoro.ui.appwidget.FlightInformationUpdateWidgetJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/files_provider_path"/>
+        </provider>
+        <service android:name="com.airfrance.android.totoro.service.services.AlarmFTTTService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.airfrance.android.totoro.receiver.AlarmReceiver"/>
+        <receiver android:name="com.airfrance.android.totoro.receiver.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.airfrance.android.totoro.receiver.TotoroGCMHandler" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.airfrance.android.dinamoprd"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.airfrance.android.totoro.receiver.InstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.airfrance.android.totoro.receiver.LocaleChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.usabilla.sdk.ubform.net.FeedbackResubmissionService"/>
+        <activity android:name="com.usabilla.sdk.ubform.screenshot.UbScreenshotActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.travelapi.seatmap.ui.ui.activity.ConfirmExitSeatActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.travelapi.seatmap.ui.ui.activity.SeatMapActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.travelapi.seatmap.ui.ui.activity.SeatMapBundleActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.paxdetails.ui.PaxDetailsActivity" android:screenOrientation="locked" android:theme="@style/PaxDetailsActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.airportlist.ui.AirportListActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.bookingflowuicomponent.common.BookingFlowActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.calendar.ui.CalendarActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.paxselection.ui.PaxSelectionActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.bookingdetails.ui.BookingDetailsActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.timetothink.ui.TimeToThinkActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.ticketconditions.ui.TicketConditionsActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.search.ui.contract.ContractSelectionActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:name="com.afklm.mobile.android.bookingflowuicomponent.bookingdetails.ui.PaymentOptionsBookingDetailsActivity" android:screenOrientation="locked" android:theme="@style/DefaultActivityTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.traveldocument.TravelDocumentActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.personalinformation.PersonalDetailsActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.travelcompanion.TravelCompanionActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.emergencycontact.EmergencyContactActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.voucher.VoucherActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.profile.ui.valueset.ProfileValueSetActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.afklm.mobile.android.insurance.InsuranceActivity" android:screenOrientation="locked" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.adyen.threeds2.internal.ui.activity.ChallengeActivity" android:theme="@style/ThreeDS2Theme.Internal" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:name="com.adyen.threeds2.internal.AppUpgradeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.ad4screen.sdk.ReferrerHandler">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.ad4screen.sdk.A4SPopup" android:taskAffinity="" android:theme="@style/com_ad4screen_sdk_theme_popup"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.ad4screen.sdk.A4SInterstitial" android:theme="@style/com_ad4screen_sdk_theme_interstitial"/>
+        <receiver android:exported="true" android:name="com.ad4screen.sdk.A4SIDFVHandler">
+            <intent-filter>
+                <action android:name="com.ad4screen.sdk.intent.action.QUERY"/>
+                <category android:name="com.ad4screen.sdk.intent.category.ANONYM_ID"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.airfrance.android.dinamoprd.ad4screen.provider" android:name="com.ad4screen.sdk.provider.A4SProvider" android:process=":A4SService" android:readPermission="com.airfrance.android.dinamoprd.provider.A4S_READ_DATABASE" android:writePermission="com.airfrance.android.dinamoprd.provider.A4S_WRITE_DATABASE"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd.acccrashappprovider" android:exported="false" android:name="com.ad4screen.sdk.service.modules.crash.CrashLogAppProvider"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd.acccrashsdkprovider" android:exported="false" android:name="com.ad4screen.sdk.service.modules.crash.CrashLogSdkProvider" android:process=":A4SService"/>
+        <receiver android:name="com.ad4screen.sdk.NotificationActionsReceiver" android:process=":A4SService">
+            <intent-filter>
+                <action android:name="com.ad4screen.sdk.notification.CLICK"/>
+                <action android:name="com.ad4screen.sdk.notification.action.CLICK"/>
+                <category android:name="com.airfrance.android.dinamoprd"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.ad4screen.sdk.service.modules.crash.CrashLogJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":A4SService"/>
+        <service android:name="com.ad4screen.sdk.service.ActivityLifecycleListenerService"/>
+        <service android:name="com.ad4screen.sdk.AccLocalNotificationListenerService"/>
+        <service android:label="A4S Service" android:name="com.ad4screen.sdk.A4SService" android:process=":A4SService">
+            <meta-data android:name="com.ad4screen.partnerid" android:value="@string/acc_partner_id"/>
+            <meta-data android:name="com.ad4screen.privatekey" android:value="@string/acc_private_key"/>
+            <meta-data android:name="com.ad4screen.senderid" android:value="@string/acc_sender_id"/>
+            <meta-data android:name="com.accengage.pushoptin" android:value="@string/acc_push_optin"/>
+            <meta-data android:name="com.ad4screen.logging" android:value="@string/acc_logging"/>
+            <meta-data android:name="com.ad4screen.no_geoloc" android:value="@string/acc_no_geoloc"/>
+            <meta-data android:name="com.ad4screen.idsprovider" android:value="@string/acc_ids_provider"/>
+            <meta-data android:name="com.ad4screen.debuggable" android:value="@string/acc_debuggable"/>
+            <meta-data android:name="com.ad4screen.usbstorage" android:value="@string/acc_usbstorage"/>
+            <meta-data android:name="com.ad4screen.advertiser_id" android:value="@string/acc_advertiser_id"/>
+            <meta-data android:name="com.ad4screen.notifications.icon" android:value="@string/acc_notification_icon"/>
+            <meta-data android:name="com.ad4screen.notifications.accent_color" android:value="@string/acc_notification_accent_color"/>
+            <meta-data android:name="com.ad4screen.webview.script_url" android:value="@string/acc_webview_script_url"/>
+            <meta-data android:name="com.ad4screen.location.priority" android:value="@string/acc_location_priority"/>
+            <meta-data android:name="com.ad4screen.tracking_mode" android:value="@string/acc_tracking_mode"/>
+            <meta-data android:name="com.ad4screen.cache.delay" android:value="@string/acc_cache_delay"/>
+            <meta-data android:name="com.ad4screen.unsecurepush" android:value="@string/acc_unsecure_push"/>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.airfrance.android.dinamoprd"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd.mlkitinitprovider" android:exported="false" android:initOrder="99" android:name="com.google.mlkit.common.internal.MlKitInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <uses-library android:name="androidx.camera.extensions.impl" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.airfrance.android.dinamoprd.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+    </application>
+</manifest>

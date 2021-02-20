@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.meetalbert" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.albert.app.TheRealApplication" android:supportsRtl="true" android:theme="@style/AlbertMaterialTheme" android:usesCleartextTraffic="false">
+        <provider android:authorities="com.meetalbert.GenericFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.albert.views.activities.profile.settings.GenericFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="com.meetalbert.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_notify_app"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/primaryAlbertBrand"/>
+        <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1035527333163978" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_android_api_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="02f54809-8476-41f8-bdd4-9cb2c0b9643b"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_difOJrorPRKWXq7M5aYu8eabwCbfc9H8"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_hdfMSvgDUTH4XA0G6dWvXjgfCyaki94o"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:launchMode="singleTop" android:name="com.albert.views.activities.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:host="open" android:scheme="meetalbert"/>
+                <data android:host="app.albrt.co" android:scheme="https"/>
+                <data android:host="app-test.albrt.co" android:scheme="https"/>
+                <data android:host="kx2t.app.link" android:scheme="https"/>
+                <data android:host="kx2t-alternate.app.link" android:scheme="https"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.albert.legacy.singleton.notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:label="" android:launchMode="singleTask" android:name="com.albert.views.activities.MainActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.savings.home.ASVHomeActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.savingsTransaction.SavingsTransactionDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/add_funds" android:name="com.albert.views.activities.savings.transfer.TransferFundsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/connected_bank_account_activity_default_title" android:name="com.albert.views.activities.account.settings.AccountSettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.savingsgoal.SavingsGoalDetailActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.account.AddAccountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.banking.BankingAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.creditCards.CreditAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.loans.LoanAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.insurance.OverviewPlanningActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.investments.InvestmentAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/manual_account" android:name="com.albert.views.activities.overviewAccounts.ManualAccountDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.loans.LoanAccountDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/property" android:name="com.albert.views.activities.overviewAccounts.property.PropertyAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/residential_address" android:name="com.albert.views.activities.overviewAccounts.property.home.CreateHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="com.albert.views.activities.overviewAccounts.property.home.CreateHomeActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name="com.albert.views.activities.overviewAccounts.WelcomeAccountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/property_details" android:name="com.albert.views.activities.overviewAccounts.property.home.HomeDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/automobile_details" android:name="com.albert.views.activities.overviewAccounts.property.vehicle.VehicleDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.profile.accountCompletion.CompletableItemListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/linked_accounts" android:name="com.albert.views.activities.profile.accounts.AllAccountsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/personal_info" android:name="com.albert.views.activities.profile.profileDetail.ProfileDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/genius" android:name="com.albert.views.activities.profile.genius.AProfileGeniusActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/settings" android:name="com.albert.views.activities.profile.settings.SettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/help" android:name="com.albert.views.activities.profile.help.HelpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/help_center2" android:name="com.albert.views.activities.profile.help.HelpCenterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/help_center_searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/delete_account" android:name="com.albert.views.activities.profile.help.DeleteAlbertAccountActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="Disclaimer" android:name="com.albert.views.post.presentation.PostInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.plaid.PlaidLoadingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.savings.automaticSetup.AccountVerificationLoadingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.tour.TourActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:launchMode="singleTask" android:name="com.albert.views.activities.signup.SignUpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.savings.manualSetup.SetupSavingsManuallyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.savings.scheduleFlow.activity.ASVSavingsScheduleActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.savings.automaticSetup.SSAActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.genius.geniusOnboarding.geniusFAQ.ASGeniusFAQActivity" android:screenOrientation="portrait" android:theme="@style/GeniusFlowActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.missions.MissionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.albert.views.activities.authentication.LockScreenActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/financial_checkup" android:name="com.albert.views.activities.financialHealth.FinancialHealthActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.albert.views.activities.financialHealth.FinancialHealthSectionActivity" android:parentActivityName="com.albert.views.activities.financialHealth.FinancialHealthSectionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.genius.geniusOnboarding.ASGeniusTourActivity" android:screenOrientation="portrait" android:theme="@style/GeniusFlowActivityTheme"/>
+        <activity android:label="" android:name="com.albert.views.activities.genius.home.GeniusTopicDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.genius.home.GeniusTopicListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.genius.home.GeniusConversationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.referral.home.ReferralActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/referral_contacts_searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name="com.albert.views.activities.billshark.BSFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/bill_status" android:name="com.albert.views.activities.billshark.BSStatusActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.billshark.missingInfo.BSMissingInfoFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/verification" android:name="com.albert.views.activities.billshark.authentication.ServiceProviderLoginActivity" android:screenOrientation="portrait" android:theme="@style/ServiceProviderActivityTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.onboarding.activity.AINOnboardingFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.account.fundingSource.ASelectBankActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.home.activity.AINHomeActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.advance.activity.AINAdvanceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.transaction.AINTransactionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.waitlist.AINWaitlistActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.settings.AINLinkedCardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.albert.views.activities.instant.home.upcomingBills.AINUpcomingBillsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:launchMode="singleTask" android:name="com.albert.views.activities.investing.onboarding.AIFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.onboardingVerification.AIVerificationFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.albert.views.activities.investing.onboardingVerification.AiBarcodeScannerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/info" android:name="com.albert.views.activities.investing.onboardingVerification.AIBarcodeScannerInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.addAutoInvestment.AIAddAutoInvestmentFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.exploreInvestment.AIExploreInvestmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.exploreInvestment.AIExploreThemesActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.documents.AIDocumentsHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.home.AIHomeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.trade.AITradeInvestmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.settings.AISettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.trade.AIInvestmentSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.home.AIArchivedActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.cashManagement.AICashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.welcome.AIWelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.preferences.AIPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.post.presentation.article.ArticleActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.trade.AIAllNewsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.albert.views.activities.planning.home.activity.APHomeActivity" android:parentActivityName="com.albert.views.activities.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.planning.home.life.onboarding.activity.LIFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.planning.home.property.onboarding.activity.HRIFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.planning.home.car.onboarding.activity.CIFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.views.activities.investing.common.AIWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.albert.feature.banking.presentation.CSHActivity" android:screenOrientation="portrait" android:theme="@style/AlbertMaterialTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.albert.feature.banking.presentation.linkAccount.CashLinkAccountActivity" android:screenOrientation="portrait" android:theme="@style/AlbertMaterialTheme"/>
+        <activity android:label="" android:name="com.albert.library.budget.BudgetTransactionsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.library.budget.BudgetActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.library.budget.spending.history.SpendingHistoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.albert.library.transaction.detail.TransactionDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/create_a_new_transaction" android:name="com.albert.library.transaction.create.CreateTransactionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/all_transactions" android:name="com.albert.library.transaction.search.TransactionSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/transaction_searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.albert.feature.pickers.PickerShellActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/info" android:name="com.albert.library.info.InfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.plaid.internal.loading.LoadingActivity" android:theme="@style/PlaidTheme"/>
+        <activity android:name="com.plaid.internal.LinkRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="redirect" android:scheme="plaid"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.plaid.internal.link.LinkWebViewActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBar"/>
+        <activity android:name="com.plaid.link.LinkActivity" android:theme="@style/PlaidTheme"/>
+        <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="true" android:name="androidx.biometric.DeviceCredentialHandlerActivity" android:theme="@style/DeviceCredentialHandlerTheme"/>
+        <activity android:name="com.stripe.android.view.AddPaymentMethodActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentMethodsActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentFlowActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentAuthWebViewActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentRelayActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeProgressDialogActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.meetalbert" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.meetalbert.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.meetalbert.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="net.danlew.android.joda.JodaTimeInitializer" android:value="androidx.startup"/>
+        </provider>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.meetalbert.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.meetalbert.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.meetalbert.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:name="com.mixpanel.android.mpmetrics.MixpanelNotificationRouteActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.mixpanel.android.mpmetrics.MixpanelPushNotificationDismissedReceiver"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

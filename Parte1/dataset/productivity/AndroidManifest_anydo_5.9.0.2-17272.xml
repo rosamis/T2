@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="internalOnly" android:sharedUserId="@string/shared_user_id" android:sharedUserLabel="@string/shared_user_label" package="com.anydo" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <permission-group android:icon="@drawable/ic_status_notification" android:label="Any.do Tasks" android:name="com.anydo.permissions.TASKS"/>
+    <permission android:description="@string/read_permission_desc" android:label="@string/read_permission_label" android:name="com.anydo.provider.permission.READ_ANYDO_TASKS" android:permissionGroup="com.anydo.permissions.TASKS" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.todoroo.astrid.READ"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:backupAgent="com.anydo.utils.BackableSharedPrefs$AnydoBackupAgent" android:icon="@mipmap/launcher_icon" android:label="@string/app_name" android:name="com.anydo.application.AnydoApp" android:restrictedAccountType="@string/account_type" android:roundIcon="@mipmap/launcher_icon_round" android:supportsRtl="false">
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAI9f9aJWUkSxZ8j4xEyC2HC8uwrLjUyXwGKa8hhQ"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.anydo.mainlist.MainTabActivity" android:theme="@style/Theme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.anydo.receivetask" android:scheme="anydo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="anydo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="anydo.intent.action.OPEN_ANYDO_MOMENT"/>
+                <action android:name="anydo.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.any.do"/>
+                <data android:pathPrefix="/ul"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="anydo"/>
+                <data android:host="anydo"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.anydo.activity.SplashActivity" android:theme="@style/Theme.Anydo.White.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/app_quick_actions"/>
+        </activity>
+        <activity-alias android:name="com.anydo.mainlist.MainListActivity" android:targetActivity="com.anydo.activity.SplashActivity"/>
+        <activity android:name="com.anydo.features.firstsync.FirstSyncActivity" android:theme="@style/Theme.Anydo.White"/>
+        <activity android:name="com.anydo.activity.DoneListActivity">
+            <intent-filter>
+                <action android:name="com.anydo.intent.INTENT_REFRESH_TASKS_IN_APP"/>
+                <action android:name="com.anydo.intent.INTENT_REFRESH_TASKS_IN_APP_HARD"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anydo.support.AnydoSupportActivity"/>
+        <activity android:name="com.anydo.activity.SettingsActivity"/>
+        <activity android:name="com.anydo.activity.DefaultCategoryPreferenceActivity"/>
+        <activity android:name="com.anydo.activity.ProfileActivity"/>
+        <activity android:name="com.anydo.features.smartcards.SmartCardsActivity" android:theme="@style/Theme.Anydo.White.Transparent"/>
+        <activity android:name="com.anydo.activity.AboutActivity"/>
+        <activity android:name="com.anydo.activity.AnydoWebView" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.getpremium.WelcomeToPremiumActivity" android:screenOrientation="portrait"/>
+        <activity android:allowEmbedded="true" android:configChanges="orientation|screenSize" android:documentLaunchMode="always" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:label="notifications" android:launchMode="singleTask" android:name="com.anydo.activity.AnydoNotificationsActivity" android:resizeableActivity="true" android:taskAffinity="com.anydo.notifications_activity" android:theme="@style/Theme.Anydo.White.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:label="widget notifications" android:launchMode="singleTask" android:name="com.anydo.activity.DismissQuickAddBarDialogActivity" android:taskAffinity="com.anydo.widget_notification" android:theme="@style/TransparentActivity.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:name="com.anydo.activity.AnydoAddTaskWidgetDialogActivity" android:taskAffinity="com.anydo.widget_notification" android:theme="@style/TransparentActivity.Fullscreen" android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="anydo.intent.action.APP_SHORTCUT_ADD_TASK"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="anydo.intent.action.ADD_TASK_WITH_KEYBOARD"/>
+                <action android:name="anydo.intent.action.ADD_TASK_WITH_VOICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:name="com.anydo.activity.CreateEventWidgetDialogActivity" android:theme="@style/TransparentActivity.Fullscreen" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.anydo.onboarding.LoginMainActivity" android:theme="@style/Theme.Anydo.White.OnBoarding" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.anydo.activity.CommunityActivity"/>
+        <activity android:name="com.anydo.activity.FeedbackLove"/>
+        <activity android:name="com.anydo.activity.SettingsMoment"/>
+        <activity android:name="com.anydo.activity.InviteeSelectionActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:name="com.anydo.activity.LocationSelectionActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.anydo.activity.AnydoMoment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anydo.post_purchase.PostPurchaseActivity" android:theme="@style/TransparentActivity.Fullscreen"/>
+        <activity android:name="com.anydo.activity.WidgetCalendarScreenConfigurationActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:documentLaunchMode="always" android:finishOnCloseSystemDialogs="true" android:name="com.anydo.activity.AskForCalendarPermissionActivity" android:theme="@style/TransparentActivity.Fullscreen"/>
+        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:name="com.anydo.debug.DebugActivity" android:theme="@style/Theme.Anydo.White">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.any.do" android:pathPrefix="/debugconfig" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:label="dialogs_tester" android:launchMode="singleTask" android:name="com.anydo.debug.DialogsTester" android:taskAffinity="com.anydo.dialogs_tester_activity" android:theme="@style/Theme.Anydo.White">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="com.anydo.activity.AlarmSetActivity" android:permission="com.android.alarm.permission.SET_ALARM" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.SET_ALARM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.gm.action.AUTO_SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="com.google.android.voicesearch.SELF_NOTE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anydo.task.TaskDetailsActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.grocery_list.ui.grocery_list_window.GroceryListActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.grocery_list.ui.migration.grocery_items_migration_dialog.GroceryItemMigrationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.grocery_list.ui.migration.non_grocery_items_migration_dialog.NonGroceryItemMigrationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anydo.grocery_list.ui.grocery_list_window.change_department.ChangeGroceryItemDepartmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.anydo.task.taskDetails.assistant.AssistantOfferActivity" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:name="com.anydo.task.taskDetails.assistant.AssistantFeedbackActivity" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:name="com.anydo.getpremium.referral.PremiumViaReferralActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anydo.auth.utils.AuthenticatorActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.anydo.android_client_commons.activity.TestEngagedUserHelpUsActivity"/>
+        <activity android:name="com.anydo.android_client_commons.activity.engaged.EngagedGooglePlusOneActivity"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:excludeFromRecents="true" android:name="com.anydo.android_client_commons.activity.GetAppWithTracking" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.getpremium.OneButtonBuyTrialPremiumActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.getpremium.ThreeButtonsNonTrialBuyPremiumActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.activity.OnBoardingFUEActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.fue.personalization.personalization_picker.PersonalizationPickerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.fue.personalization.personalization_explanation.PersonalizationExplanationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.anydo.notifications.NotificationCenterActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.features.rating.RateUsActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.anydo.utils.subscription_utils.stripe.StripePurchaseActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:name="com.anydo.utils.print.PrintDialogActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.anydo.activity.MomentEmptyStateActivity"/>
+        <activity android:name="com.anydo.activity.VoiceRecognitionActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:configChanges="orientation" android:name="com.anydo.calendar.onboarding.permissions_prompt.CalendarPermissionsPromptActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anydo.calendar.CalendarEventDetailsActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.anydo.calendar.CreateEventDropDownActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.anydo.calendar.CalendarEventDetailsDropDownActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.anydo.calendar.CreateEventActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:name="com.anydo.shortcuts.ViewAgendaTrampolineActivity" android:theme="@style/Theme.Anydo.White.Splash"/>
+        <activity android:name="com.anydo.features.foreignlist.ForeignListsSetupActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:name="com.anydo.features.foreignlist.ForeignListsConflictResolutionActivity" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.anydo.label.TaskLabelsEditScreen" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.anydo.label.LabelEditOrCreateScreen" android:theme="@style/TransparentActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.anydo.task.taskDetails.reminder.location_reminder.location_address_picker.LocationAddressPickerActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.adadapted.android.sdk.ui.activity.AdditInterceptActivity" android:taskAffinity="com.adadapted.android.sdk.ui.activity.AdditInterceptActivity" android:theme="@style/TransparentActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="adadapted.com" android:pathPrefix="/" android:scheme="anydoaddit"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.anydo.activity.LoadingActivity"/>
+        <activity android:configChanges="screenSize" android:name="com.anydo.promotionPopup.PromotionActivity" android:screenOrientation="portrait" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.anydo.grocery_list.external_grocery_items_provider.ExternalGroceriesAdderActivity" android:taskAffinity=".grocery_list.external_grocery_items_provider.ExternalGroceriesAdderActivity" android:theme="@style/TransparentActivity"/>
+        <activity android:name="com.anydo.ui.focus_onboarding.activities.FocusOnboardingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_focus" android:launchMode="singleTask" android:name="com.anydo.focus.ui.FocusActivity" android:screenOrientation="portrait" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:label="@string/title_activity_focus" android:name="com.anydo.focus.ui.ForestActivity" android:screenOrientation="portrait" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:name="com.anydo.getpremium.views.PremiumUpsellActivity" android:screenOrientation="portrait" android:theme="@style/PremiumUpsellFloating"/>
+        <activity android:name="com.anydo.getpremium.views.CNPremiumUpsellActivity" android:screenOrientation="portrait" android:theme="@style/SafeTransparentActivityFullscreen"/>
+        <activity android:name="com.anydo.integrations.integrations_list.IntegrationsListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.anydo.integrations.whatsapp.subscribe.WhatsAppIntegrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.anydo.integrations.whatsapp.settings.WhatsAppSettingsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.anydo.smartcards_notifs.SmartCardsNotifsActivity"/>
+        <activity android:name="com.anydo.reminder_permissions.AllowRemindersActivity"/>
+        <activity android:name="com.anydo.search.SearchActivity" android:theme="@style/Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <provider android:authorities="com.anydo.search.recent.RecentSearchProvider" android:name="com.anydo.search.recent.RecentSearchProvider"/>
+        <provider android:authorities="com.anydo.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="com.anydo.provider" android:exported="true" android:label="@string/content_provider_name" android:name="com.anydo.providers.TasksContentProvider" android:readPermission="com.anydo.provider.permission.READ_ANYDO_TASKS"/>
+        <service android:name="com.anydo.wear.AnydoWearableListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <data android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.anydo.sync_adapter.realtimesync.RealtimeSyncService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:enabled="true" android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"/>
+        <service android:exported="false" android:name="com.anydo.task.taskDetails.reminder.location_reminder.location_address_picker.ReverseGeocoderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.anydo.utils.AppLifecycleHandler$AppLifecycleReceiver">
+            <intent-filter>
+                <action android:name="com.anydo.intent.action.APP_IN_FOREGROUND"/>
+                <action android:name="com.anydo.intent.action.APP_IN_BACKGROUND"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.android_client_commons.notifications.LocalNotificationsReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDVZDLUk5d9YynGu4MGiDd-eUcsMq-TEVw"/>
+        <service android:exported="true" android:name="com.anydo.service.GeneralService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.MeetingEndedService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.NotificationWidgetService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.GeoAlertServiceManagerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.AttachFileIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.DownloadCompleteIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.service.DeleteAttachmentFilesService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.anydo.widget.ScrollableWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:exported="false" android:name="com.anydo.widget.CalendarWidgetScreenService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:exported="false" android:name="com.anydo.widget.TasksWidgetScreenService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:icon="@drawable/ic_status_notification" android:label="@string/dashclock_title" android:name="com.anydo.service.AnydoDashClockExtension" android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension"/>
+            </intent-filter>
+            <meta-data android:name="protocolVersion" android:value="1"/>
+            <meta-data android:name="description" android:value="@string/dashclock_description"/>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="com.anydo.service.TasksSyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/tasks_sync_adapter"/>
+        </service>
+        <service android:name="com.anydo.auth.AnydoAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.anydo.service.UpdateCalendarAlarmsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.anydo.receiver.AddTaskNotificationWidgetReceiver$AddedTaskTresholdJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.anydo.debug.analytics.TrackedEventsService"/>
+        <receiver android:name="com.anydo.receiver.AccountChangeListener">
+            <intent-filter>
+                <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.receiver.NotificationLocaleChanged">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.service.PeriodicServiceStartupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.receiver.TaskUpdatedReceiver">
+            <intent-filter>
+                <action android:name="com.anydo.intent.INTENT_TASK_UPDATED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anydo.receiver.CalendarReminderReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:label=".OnetimeAlarmReceiver" android:name="com.anydo.receiver.OnetimeAlarmReceiver"/>
+        <receiver android:name="com.anydo.receiver.CalendarUpdateReceiver" android:priority="1000">
+            <intent-filter>
+                <action android:name="android.intent.action.EVENT_REMINDER"/>
+                <data android:scheme="content"/>
+                <data android:host="com.android.calendar"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.anydo.receiver.AddTaskNotificationWidgetReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.anydo.receiver.MettingEndedReminderReceiver"/>
+        <service android:exported="true" android:name="com.anydo.wear.WearNotificationActionService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.anydo.receiver.JobIntentServiceLauncher"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.anydo.receiver.HomescreenWidgetsMidnightRefreshReceiver">
+            <intent-filter>
+                <action android:name="com.anydo.intent.MIDNIGHT_REFRESH_DELEGATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:icon="@drawable/calendar_and_task__white_calendar_icon" android:label="@string/widget_opaque_calendar" android:name="com.anydo.widget.CalendarAndTasksWidget_WhiteDefaultCalendar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+                <action android:name="com.anydo.intent.widget.click"/>
+                <action android:name="com.anydo.intent.GROUP_BY_CHANGED"/>
+                <action android:name="com.anydo.intent.MIDNIGHT_REFRESH"/>
+                <action android:name="com.anydo.intent.PERMISSION_GRANTED"/>
+                <action android:name="com.anydo.intent.PERMISSION_DENIED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_calendar_and_tasks__white_calendar"/>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:icon="@drawable/calendar_and_task__white_task_icon" android:label="@string/widget_opaque_task" android:name="com.anydo.widget.CalendarAndTasksWidget_WhiteDefaultTask">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+                <action android:name="com.anydo.intent.widget.click"/>
+                <action android:name="com.anydo.intent.GROUP_BY_CHANGED"/>
+                <action android:name="com.anydo.intent.MIDNIGHT_REFRESH"/>
+                <action android:name="com.anydo.intent.PERMISSION_GRANTED"/>
+                <action android:name="com.anydo.intent.PERMISSION_DENIED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_calendar_and_tasks__white_task"/>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:icon="@drawable/calendar_and_task__transparent_calendar_icon" android:label="@string/widget_transparent_calendar" android:name="com.anydo.widget.CalendarAndTasksWidget_TransparentDefaultCalendar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+                <action android:name="com.anydo.intent.widget.click"/>
+                <action android:name="com.anydo.intent.GROUP_BY_CHANGED"/>
+                <action android:name="com.anydo.intent.MIDNIGHT_REFRESH"/>
+                <action android:name="com.anydo.intent.PERMISSION_GRANTED"/>
+                <action android:name="com.anydo.intent.PERMISSION_DENIED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_calendar_and_tasks__transparent_calendar"/>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:icon="@drawable/calendar_and_task__transparent_task_icon" android:label="@string/widget_transparent_task" android:name="com.anydo.widget.CalendarAndTasksWidget_TransparentDefaultTask">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+                <action android:name="com.anydo.intent.widget.click"/>
+                <action android:name="com.anydo.intent.GROUP_BY_CHANGED"/>
+                <action android:name="com.anydo.intent.MIDNIGHT_REFRESH"/>
+                <action android:name="com.anydo.intent.PERMISSION_GRANTED"/>
+                <action android:name="com.anydo.intent.PERMISSION_DENIED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_calendar_and_tasks__transparent_task"/>
+        </receiver>
+        <receiver android:enabled="@bool/is_widget_supported" android:exported="true" android:label="@string/widget_compact_opaque" android:name="com.anydo.widget.SmallWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.widget.SmallWidget.update"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_small_provider"/>
+        </receiver>
+        <receiver android:enabled="@bool/is_widget_supported" android:exported="true" android:label="@string/widget_compact_transparent" android:name="com.anydo.widget.TransparentSmallWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.widget.SmallWidget.update"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_small_transparent_provider"/>
+        </receiver>
+        <receiver android:enabled="@bool/is_widget_supported" android:exported="true" android:label="@string/widget_minimal_opaque" android:name="com.anydo.widget.MinimalWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_minimal_provider"/>
+        </receiver>
+        <receiver android:enabled="@bool/is_widget_supported" android:exported="true" android:label="@string/widget_minimal_transparent" android:name="com.anydo.widget.TransparentMinimalWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED"/>
+                <action android:name="com.anydo.intent.THEME_CHANGED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_minimal_transparent_provider"/>
+        </receiver>
+        <service android:name="com.anydo.push_notification.PushMessageListener" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.anydo.focus.service.FocusService"/>
+        <service android:name="com.anydo.analytics.SyncEventsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.anydo.utils.subscription_utils.unsent_to_remote.PendingSubscriptionsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.anydo.sync_adapter.realtimesync.RealtimeSyncSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.anydo.service.CleanScheduleService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.anydo.service.WidgetsDailyUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="105cf99a9cdc48eb7009cc726a41fb7af491bb8b"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider218307504870310" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="net.singular.api_key" android:value="d54517e702f44ce4ae28ce9855a84330"/>
+        <meta-data android:name="net.singular.app_id" android:value="Any.do"/>
+        <receiver android:exported="true" android:name="com.anydo.receiver.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_status_notification"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.ktx.FirebaseInAppMessagingDisplayKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.ktx.FirebaseInAppMessagingKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.display.FirebaseInAppMessagingDisplayRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.inappmessaging.FirebaseInAppMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.1"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <provider android:authorities="com.anydo.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.anydo.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <provider android:authorities="com.anydo.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.anydo.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.anydo.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.anydo.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

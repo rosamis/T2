@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="auto" package="com.sgiggle.production" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <queries>
+        <package android:name="com.instagram.android"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.whatsapp"/>
+    </queries>
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="true"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:glEsVersion="0x00030000" android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:backupAgent="com.sgiggle.call_base.cloud.TangoBackupAgent" android:extractNativeLibs="false" android:fullBackupContent="@xml/full_backup" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.sgiggle.app.TangoMessengerApp" android:requestLegacyExternalStorage="true" android:resizeableActivity="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.Tango.Base" android:usesCleartextTraffic="true">
+        <service android:name="com.sgiggle.call_base.service.GCMIntentService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.sgiggle.app.AppInstalledReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.sgiggle.production.tangocontentprovider" android:grantUriPermissions="true" android:name="com.sgiggle.app.TangoContentProvider"/>
+        <activity android:hardwareAccelerated="true" android:label="@string/activity_messenger_main__title" android:launchMode="singleTop" android:name="com.sgiggle.app.MessengerMainActivity" android:screenOrientation="sensorPortrait" android:theme="@style/Theme.Tango.NoActionBar.Light" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.sgiggle.app.HomeFragmentContainerActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sgiggle.app.dialpad.DialpadCountryListActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:name="com.sgiggle.app.dialpad.buy.BuyCreditsActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.app.profile.ContactDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:label="" android:name="com.sgiggle.app.profile.menu.ProfileMenuActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.app.ContactsSocialActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:label="@string/fun_post_activity_caption" android:name="com.sgiggle.app.social.discover.MomentsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Dark.NoActionBar"/>
+        <meta-data android:name="tango_sdk_app_id" android:value="tango"/>
+        <service android:name="com.sgiggle.production.service.SDKService">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN"/>
+                <data android:mimeType="application/data" android:scheme="tangoapi"/>
+                <data android:mimeType="application/data" android:scheme="tangoapiv2"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.sgiggle.app.sync.ContactsSyncAdapterService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_contacts"/>
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE" android:resource="@xml/contacts"/>
+        </service>
+        <meta-data android:name="io.mysdk.ApiKey" android:value="55bbfccb36d140bba6e78a65108ae597"/>
+        <meta-data android:name="placed_app_key" android:value="17a97ddc2391"/>
+        <meta-data android:name="firebase_performance_logcat_enabled" android:value="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library android:name="com.sprint.hardware.twinCamDevice" android:required="false"/>
+        <uses-library android:name="com.motorola.hardware.frontcamera" android:required="false"/>
+        <meta-data android:name="com.google.android.backup.api_key" android:value="@string/backup_api_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="com.sgiggle.app.profile.vip.activity.GoVipActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.app.profile.vip.activity.GoVipDialogActivity" android:theme="@style/GoVipDialogActivity"/>
+        <activity android:name="com.sgiggle.app.payment.view.RefillActivity" android:screenOrientation="portrait" android:theme="@style/RefillActivityTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="com.sgiggle.app.profile.instagram.InstagramAuthenticationActivity" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.sgiggle.production.SplashScreen" android:noHistory="true" android:theme="@style/Theme.Tango.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tango"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.tango.me" android:pathPrefix="/deeplink" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/icon_chat">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.sgiggle.android.profile"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/icon_video_call">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="com.android.htccontacts/chat_capability"/>
+            </intent-filter>
+            <intent-filter android:icon="@drawable/icon_tangoout">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.sgiggle.android.call_tangoout"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.broadcasterstatistics.ui.BroadcasterStatisticsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:label="@string/social_feed_share_from_external_app" android:launchMode="singleInstance" android:name="com.sgiggle.app.social.SocialComposerActivity" android:taskAffinity="" android:theme="@style/Theme.Tango.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.app.social.discover.map.MapsActivity" android:theme="@style/Theme.Tango.Base" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.scanner.QrCodeScannerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.OverlayActionBar"/>
+        <activity android:name="com.sgiggle.app.scanner.ScanTextResultActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:name="com.sgiggle.app.social.PictureViewerActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.app.social.MusicFeedComposeActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.sgiggle.app.social.SocialVideoFeedActivity"/>
+        <activity android:name="com.sgiggle.app.FacebookLikePageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/settings" android:name="com.sgiggle.app.settings.SettingsPreferenceModernActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:name="com.sgiggle.app.settings.DialogHelperActivity" android:theme="@style/Theme.Tango.SettingsHelperDialog"/>
+        <activity android:name="com.sgiggle.app.ValidationRequiredDialogHelperActivity" android:theme="@style/Theme.Tango.SettingsHelperDialog"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.settings.EditProfileHelperActivity" android:theme="@style/Theme.Tango.SettingsHelperDialog"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.settings.EditSaveAddressBookHelperActivity" android:theme="@style/Theme.Tango.SettingsHelperDialog"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.RegisterAccountPhoneActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Registration"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.RegisterCloudAccountActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Registration"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.RegisterAccountProfileActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Registration" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="com.sgiggle.app.agent.AgentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="com.sgiggle.app.stories.ui.StoriesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Live.Player" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_leaderboard" android:name="com.sgiggle.app.leaderboard.LeaderboardActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:launchMode="singleTop" android:name="com.sgiggle.app.live.broadcast.LiveBroadcastRecorderActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Live.Recorder.Public" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.live.MyTopGiftersActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.call_base.CallActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Call" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.sgiggle.app.country_selector.CountrySelectListActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="@string/app_name" android:name="com.sgiggle.app.UpdateRequiredActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Tango Log" android:name="com.sgiggle.app.AppLogActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.ExitActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.PostCallActivity" android:theme="@style/Dialog.PostCall"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.tc.ConversationDetailActivity" android:theme="@style/Theme.Tango.ConversationDetailActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="" android:name="me.tango.android.chat.drawer.controller.photo.DrawerPhotoFullscreenMediaActivity" android:theme="@style/Tango.ChatDrawerPhotoFullscreen"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.sgiggle.app.screens.tc.LockscreenActivitySWIG" android:noHistory="true" android:screenOrientation="sensor" android:taskAffinity="" android:theme="@style/Theme.Tango.Lockscreen"/>
+        <activity android:label="@string/tc_group_settings" android:name="com.sgiggle.app.screens.tc.ConversationSettingsActivitySWIG" android:theme="@style/Theme.Tango.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.call_base.screens.picture.PicturePreviewActivity" android:theme="@style/Theme.Tango.Dark.Fullscreen"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:name="com.sgiggle.app.live.broadcast.LiveBroadcastPlayerActivity" android:screenOrientation="portrait" android:supportsPictureInPicture="true" android:taskAffinity=".stream" android:theme="@style/Theme.Tango.Live.Player.Public" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sgiggle.app.profile.ProfileSubscriptionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Live.Player" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sgiggle.app.live.LiveMessageReplayActivity" android:theme="@style/Theme.Tango.Dark.NoActionBar.Video"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sgiggle.app.live.broadcast.LiveBroadcastReplayActivity" android:theme="@style/Theme.Tango.Dark.NoActionBar.Video"/>
+        <activity android:name="com.sgiggle.app.live.LiveRedeemEntryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Live.Redeem"/>
+        <activity android:name="com.sgiggle.app.live.LiveRedeemHistoryActivity" android:theme="@style/Theme.Tango.Live.Redeem"/>
+        <activity android:name="com.sgiggle.app.live.LiveRedeemWithdrawalActivity" android:theme="@style/Theme.Tango.Live.Redeem"/>
+        <activity android:name="com.sgiggle.app.live.LiveRedeemAgreementActivity" android:theme="@style/Theme.Tango.Live.Redeem"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.app.SlidableGalleryActivity" android:theme="@style/Theme.Tango.OverlayActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.app.social.SocialFeedGalleryActivity" android:theme="@style/Theme.Tango.Dark.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.sgiggle.app.contact.swig.selectcontact.SelectContactActivitySWIG" android:theme="@style/Theme.Tango.Base" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.sgiggle.app.invite.InviteFriendsActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="@string/select_contact_tc_share_activity_label" android:launchMode="singleTask" android:name="com.sgiggle.app.contact.swig.selectcontact.SelectContactActivitySWIGTcShare" android:theme="@style/Theme.Tango.Base" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value="com.sgiggle.app.service.DirectShareService"/>
+        </activity>
+        <service android:label="@string/app_name" android:name="com.sgiggle.app.service.DirectShareService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.sgiggle.app.screens.videomail.ViewVideomailActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.sgiggle.app.screens.videomail.ViewRecordedVideoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.sgiggle.app.screens.videomail.RecordVideomailActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.sgiggle.app.PopupNotification" android:theme="@style/popup_notification"/>
+        <activity android:label="@string/pref_discover_settings_title" android:name="com.sgiggle.app.social.discover.DiscoverSettingsActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="@string/disco2_favorites_following_page_title" android:name="com.sgiggle.app.social.discover.DiscoverFollowingActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="@string/disco2_favorites_followers_page_title" android:name="com.sgiggle.app.social.discover.DiscoverFollowersActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/social_find_friends_pumk_title" android:launchMode="singleTop" android:name="com.sgiggle.app.invite.InvitePUMKActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:name="com.sgiggle.app.qr_code.QrCodeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="screenSize" android:label="" android:name="com.sgiggle.app.social.CommentsActivity" android:theme="@style/Theme.Tango.Base" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/social_block_list_activity_title" android:launchMode="singleTop" android:name="com.sgiggle.app.BlockListActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/social_hide_list_activity_title" android:launchMode="singleTop" android:name="com.sgiggle.app.HideListActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sgiggle.app.browser.BrowserActivity" android:theme="@style/Theme.Tango.Base" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/add_contact" android:name="com.sgiggle.app.search.GlobalSearchActivity" android:theme="@style/Theme.Tango.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sgiggle.app.home.navigation.fragment.sociallive.PublicFeedListActivity" android:theme="@style/Theme.Tango.Base.NoActionBar"/>
+        <activity android:label="@string/home_navigation_drawer_item_news" android:name="com.sgiggle.app.feed.FeedActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.FeedActivity"/>
+        <service android:name="com.sgiggle.call_base.service.MessageService"/>
+        <service android:name="com.sgiggle.app.service.AppIndexService"/>
+        <service android:name="com.sgiggle.app.service.RegistrationReminderService"/>
+        <receiver android:enabled="true" android:name="com.sgiggle.call_base.receiver.SystemDaemon">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sgiggle.app.receiver.VoipSyncReceiver">
+            <intent-filter>
+                <action android:name="com.android.contacts.im.VoIP.SYNC"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sgiggle.app.live.broadcast.DeleteNotificationReceiver"/>
+        <activity android:name="com.sgiggle.app.receiver.ProcessNotificationActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <service android:name="com.sgiggle.app.service.WearInputService"/>
+        <service android:name="com.sgiggle.app.photoreminder.PhotoShareReminderService"/>
+        <receiver android:name="com.sgiggle.call_base.LockScreenReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sgiggle.app.SMSReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.sgiggle.app.contact_mining.DataService"/>
+        <receiver android:name="com.sgiggle.app.contact_mining.DataService$Receiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWEROFF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sgiggle.app.social.SocialPushNotifier$SocialNotificationReceiver"/>
+        <receiver android:name="com.sgiggle.app.receiver.TimerReceiver"/>
+        <receiver android:exported="false" android:name="com.sgiggle.app.notification.TCNotificationManager$NotificationDeleteReceiver"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_name" android:name="com.sgiggle.app.sync.SyncLoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name="com.sgiggle.app.sync.AccountAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.sgiggle.app.VerificationActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="" android:name="com.sgiggle.call_base.social.galleryx.TangoGalleryActivity" android:theme="@style/Theme.Tango.Dark"/>
+        <activity android:label="" android:name="com.sgiggle.call_base.social.galleryx.TangoGalleryPreviewActivity" android:theme="@style/Theme.Tango.Dark"/>
+        <activity android:label="@string/sticker_store_activity_title" android:launchMode="singleTop" android:name="com.sgiggle.app.stickers.store.StickerStoreActivity" android:theme="@style/Theme.Tango.Base"/>
+        <activity android:label="@string/tc_conversation_new_family_group" android:name="com.sgiggle.app.CreateFamilyGroupNameActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.app.invite.popover.InviteFriendsDialogActivity" android:theme="@style/Theme.Tango.Dialog"/>
+        <activity android:name="com.sgiggle.app.invite.popover.InvitePermissionDialogActivity" android:theme="@style/Theme.Tango.Dialog"/>
+        <activity android:name="com.sgiggle.app.social.feeds.gift.PostGiftersActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/app_name"/>
+        <meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/app_name"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/facebook_account_kit_client_token"/>
+        <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCQ90_9qZwlGR3Kv9U2Sg1SWLhXy7ENwyE"/>
+        <service android:exported="false" android:name="com.sgiggle.app.tc.photoshare.PhotoShareService"/>
+        <service android:exported="false" android:name="com.sgiggle.app.tc.wallpaper.TangoWallpaperIntentService"/>
+        <activity android:name="me.tango.android.chat.history.wallpaper.WallpaperPreviewActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.app.tc.wallpaper.TangoWallpaperPreviewActivity" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:name="com.sgiggle.call_base.social.galleryx.TangoNewGalleryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.NoActionBar"/>
+        <activity android:exported="false" android:name="com.sgiggle.app.settings.GoogleConnectAccountActivity" android:theme="@style/Transparent"/>
+        <activity android:exported="false" android:name="com.sgiggle.app.settings.FacebookConnectAccountActivity" android:theme="@style/Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:label="@string/com_accountkit_button_log_in" android:launchMode="singleTop" android:name="com.facebook.accountkit.ui.AccountKitActivity" android:theme="@style/Theme.AccountKit.Tango" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sgiggle.app.live.countrypicker.LiveCountryChooserActivity" android:theme="@style/Theme.Tango.NoActionBar.Light" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.sgiggle.app.newsearch.NewSearchActivity" android:theme="@style/Theme.Tango.NoActionBar.Light" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <provider android:authorities="@string/facebook_content_provider_name" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <provider android:authorities="com.sgiggle.production.external_files" android:exported="false" android:grantUriPermissions="true" android:name="com.sgiggle.call_base.io.ExternalFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.sgiggle.app.live.multistream.MultiStreamInviteActionService"/>
+        <service android:exported="false" android:name="com.sgiggle.app.live.multistream.PublicPartyInviteActionService"/>
+        <activity android:exported="false" android:name="com.sgiggle.app.live.multistream.MultiStreamStartProxyActivity" android:theme="@style/Theme.Tango.MultiStreamProxy"/>
+        <activity android:label="@string/home_drawer_notifications" android:name="me.tango.bellnotifications.presentation.BellNotificationsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Light.NoActionBar"/>
+        <activity android:name="me.tango.feed.presentation.activity.SinglepostActivity"/>
+        <activity android:label="@string/subscriptions" android:name="me.tango.subscriptions.presentation.list.subscriptions.SubscriptionsListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Subscriptions.Light"/>
+        <activity android:label="@string/subscribers" android:name="me.tango.subscriptions.presentation.list.subscribers.SubscribersListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Subscriptions.Light"/>
+        <activity android:label="@string/disco2_favorites_followers_page_title" android:name="me.tango.followers.presentation.FollowersActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Light.NoActionBar"/>
+        <activity android:name="me.tango.android.instagram.presentation.InstagramPhotoViewActivity" android:screenOrientation="portrait" android:theme="@style/Tango.FullscreenMediaActivity"/>
+        <activity android:name="me.tango.android.instagram.presentation.photoselection.PhotoSelectionActivity" android:screenOrientation="portrait" android:theme="@style/Tango.DarkNavigation"/>
+        <activity android:label="@string/gifts_in_posts_title" android:name="me.tango.giftsinposts.presentation.GiftsInPostsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tango.Light.NoActionBar"/>
+        <activity android:name="me.tango.onboarding.presentation.ui.OnboardingActivity" android:screenOrientation="portrait" android:theme="@style/ThemeOnboarding"/>
+        <service android:name="io.intercom.android.sdk.fcm.IntercomFcmMessengerService">
+            <intent-filter android:priority="-400">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="me.tango.account.deletion.view.AccountDeletionActivity" android:theme="@style/Theme_AccountDeletionForm" android:windowSoftInputMode="adjustResize"/>
+        <provider android:authorities="com.sgiggle.production.widgets_files" android:exported="false" android:grantUriPermissions="true" android:name="me.tango.android.provider.ExternalFilesProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/files"/>
+        </provider>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.sgiggle.production" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <provider android:authorities="com.sgiggle.production.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="picker_categories_prefetch_plugin" android:value="com.gfycat.picker.PickerCategoriesPrefetchPlugin"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity"/>
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity"/>
+        <service android:exported="false" android:name="com.paypal.android.sdk.payments.PayPalService"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/tw__transparent" android:label="@string/kit_name" android:name="com.twitter.sdk.android.core.identity.ShareEmailActivity"/>
+        <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.2"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.sgiggle.production.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:exported="true" android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity" android:noHistory="true"/>
+        <provider android:authorities="com.sgiggle.production.AccountKitInitialization" android:exported="false" android:name="com.facebook.accountkit.internal.AccountKitInitProvider"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomMessengerActivity" android:theme="@style/Intercom_PanelTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:name="io.intercom.android.sdk.lightbox.LightBoxActivity" android:theme="@style/Intercom_LightBoxTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomArticleActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomHelpCenterActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="io.intercom.android.sdk.activities.IntercomPostActivity" android:theme="@style/Intercom_PostTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="io.intercom.android.sdk.activities.IntercomNoteActivity" android:theme="@style/Intercom_NoteTheme" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomSheetActivity" android:theme="@style/Intercom_ModalActivityTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="io.intercom.android.sdk.activities.IntercomVideoActivity" android:theme="@style/Intercom_PanelTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="io.intercom.android.sdk.activities.IntercomCarouselActivity" android:screenOrientation="portrait" android:theme="@style/Intercom_CarouselTheme" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:exported="false" android:name="io.intercom.android.sdk.push.IntercomPushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="io.intercom.android.sdk.INTERCOM_PUSH_OPENED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="io.intercom.android.sdk.INTERCOM_PUSH_DISMISSED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.sgiggle.production.IntercomInitializeContentProvider" android:exported="false" android:name="io.intercom.android.sdk.IntercomInitializeContentProvider"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.sgiggle.production.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.sgiggle.production.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:name="vigo.sdk.FeedbackActivity" android:theme="@style/MyAppCompatDialogTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.intercom.input.gallery.GalleryInputFullScreenActivity" android:theme="@style/intercom_composer_full_screen_theme"/>
+        <activity android:configChanges="density|orientation|screenLayout|screenSize" android:name="com.intercom.input.gallery.GalleryLightBoxActivity" android:theme="@style/intercom_composer_full_screen_theme"/>
+    </application>
+</manifest>

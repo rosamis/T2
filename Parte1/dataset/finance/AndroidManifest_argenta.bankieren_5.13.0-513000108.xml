@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" compileSdkVersion="30" compileSdkVersionCodename="11" package="be.argenta.bankieren" platformBuildVersionCode="30" platformBuildVersionName="11" versionName="5.13.0">
+    <uses-permission name="android.permission.INTERNET"/>
+    <uses-permission name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission name="android.permission.CALL_PHONE"/>
+    <uses-permission name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission name="android.permission.CAMERA"/>
+    <uses-permission name="android.permission.USE_BIOMETRIC" required="false"/>
+    <uses-feature name="android.hardware.telephony" required="false"/>
+    <uses-feature name="android.hardware.location" required="false"/>
+    <uses-feature name="android.hardware.location.gps" required="false"/>
+    <uses-feature name="android.hardware.camera.any" required="false"/>
+    <supports-screens anyDensity="true" largeScreens="true" normalScreens="true" resizeable="true" smallScreens="true"/>
+    <uses-permission name="android.permission.FLASHLIGHT"/>
+    <uses-feature name="android.hardware.camera" required="false"/>
+    <uses-feature name="android.hardware.camera.autofocus" required="false"/>
+    <uses-feature name="android.hardware.camera.flash" required="false"/>
+    <uses-feature glEsVersion="0x00020000" required="true"/>
+    <uses-permission name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission name="android.permission.VIBRATE"/>
+    <uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission name="android.permission.WAKE_LOCK"/>
+    <uses-permission name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission name="android.permission.FOREGROUND_SERVICE"/>
+    <application allowBackup="false" android:icon="@mipmap/ic_launcher" appComponentFactory="o.setStackedBackground" label="@string/2131951823" largeHeap="true" name=".core.App" requestLegacyExternalStorage="true" roundIcon="@mipmap/ic_launcher_round" supportsRtl="true" theme="@style/2132017741">
+        <uses-library name="org.apache.http.legacy" required="false"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" resource="@color/2131099807"/>
+        <service name=".core.firebase.AppFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.version" android:value="12451000"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBP4UVnT-xAx6Hmn60B19y66uvEX90yPFI"/>
+        <activity android:name=".ui.app.Launcher$read" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity-alias name="be.argenta.bankieren.ui.flows.login.SplashActivity" noHistory="true" targetActivity=".ui.app.Launcher$read">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data name="android.app.shortcuts" resource="@xml/2132148227"/>
+        </activity-alias>
+        <activity android:name=".ui.app.Launcher$MediaBrowserCompat$SearchResultReceiver" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaSessionCompat$QueueItem" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaControllerCompat$MediaControllerImplApi21$ExtraBinderRequestResultReceiver" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaMetadataCompat" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$write" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaDescriptionCompat" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$RemoteActionCompatParcelizer" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaSessionCompat$Token" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaSessionCompat$ResultReceiverWrapper" noHistory="true" screenOrientation="portrait" theme="@style/2132017745"/>
+        <activity android:name=".ui.app.Launcher$MediaBrowserCompat$MediaItem" noHistory="true" screenOrientation="portrait" theme="@style/2132017263"/>
+        <activity android:name=".ui.app.Launcher$MediaBrowserCompat$ItemReceiver" noHistory="true" screenOrientation="portrait" theme="@style/2132017263"/>
+        <activity android:name=".ui.app.Launcher$StartDeepLinkActivity" launchMode="singleTask" noHistory="true" screenOrientation="portrait" theme="@style/2132017263">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.argenta.be" android:pathPrefix="/app/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.generic.itsme.StartUrlIntentActivity" enabled="@bool/2131034116" noHistory="true" screenOrientation="unspecified" theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:pathPattern="/itsme/.*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity-alias enabled="@bool/2131034116" name="be.argenta.bankieren.ui.generic.itsme.StartUrlIntentActivityAlias" noHistory="true" screenOrientation="unspecified" targetActivity=".ui.generic.itsme.StartUrlIntentActivity" theme="@android:style/Theme.NoDisplay">
+            <intent-filter autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data host="login.argenta.be" pathPattern="/itsme/.*" scheme="https"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name=".ui.generic.redirect.StartUrlIntentActivity" noHistory="true" screenOrientation="unspecified" theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:pathPattern="/customers/onboarding/sign.html" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:pathPattern="/universal-signing/redirect/sign.html" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.psd2.legal.Psd2LegalActivity" label="" screenOrientation="portrait" theme="@style/2132017742"/>
+        <activity android:name=".ui.psd2.legal.Psd2LegalAccountSelectionActivity" label="" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name="o.AlarmManagerSchedulerBroadcastReceiver" theme="@style/2132017459"/>
+        <activity android:name=".ui.upload.UploadFilesActivity" label="" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name="o.SystemInfoService$DeviceType" label="@string/2131952255" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name="o.SystemInfoService$DisplayInformation" enabled="@bool/2131034116" label="@string/2131952255" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name="o.SystemInfoService$NetworkConnectionActiveListener" label="@string/2131952255" parentActivityName=".ui.home.HomeActivity" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.home.HomeActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationItsmeTransitionActivity" enabled="@bool/2131034116" launchMode="singleTop" parentActivityName=".ui.registration.RegistrationStep3bActivity" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="be.argenta.bankieren.ui.registration.RegistrationStep3bActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationItsmeErrorActivity" enabled="@bool/2131034116" label="@string/2131952255" launchMode="singleTop" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationStep1Activity" label="@string/2131952255" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationStep2Activity" label="@string/2131952255" parentActivityName=".ui.registration.RegistrationStep1Activity" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationStep1Activity"/>
+        </activity>
+        <activity android:name="o.SystemNotificationService" label="@string/2131952255" parentActivityName=".ui.registration.RegistrationStep2Activity" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationStep2Activity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationStep3bActivity" label="@string/2131952255" parentActivityName="o.SystemNotificationService" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationStep3aActivity"/>
+        </activity>
+        <activity android:name="o.StringVariantSerializer" label="@string/2131952255" parentActivityName=".ui.registration.RegistrationStep3bActivity" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationStep3bActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationDigipassChallengeActivity" label="@string/2131952255" parentActivityName="o.StringVariantSerializer" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="stateAlwaysHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationDigipassIntroActivity"/>
+        </activity>
+        <activity android:name="o.SystemNotificationService$NotificationType" label="@string/2131952255" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name="o.TLSSocketFactory" label="@string/2131952255" parentActivityName=".ui.home.HomeActivity" screenOrientation="unspecified" theme="@style/2132017748">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.home.HomeActivity"/>
+        </activity>
+        <activity android:name=".ui.registration.RegistrationDocumentsActivity" label="@string/2131952255" parentActivityName="o.SystemInfoService$NetworkConnectionActiveListener" screenOrientation="portrait" theme="@style/2132017751">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.registration.RegistrationIntroActivity"/>
+        </activity>
+        <activity android:name=".ui.home.HomeActivity" screenOrientation="portrait" theme="@style/2132017743"/>
+        <activity android:name=".ui.home.HomeLanguageActivity" screenOrientation="portrait" theme="@style/2132017743"/>
+        <activity android:name=".ui.whatsnew.WhatsNewActivity" label="@string/2131953946" screenOrientation="portrait"/>
+        <activity android:name=".ui.contact.ContactActivity" label="@string/2131952837" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait"/>
+        <activity android:name="o.TransactionsPlaceholderController" label="@string/2131952843" screenOrientation="portrait"/>
+        <activity android:name=".ui.demo.DemoInfoActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.navigation.NavigationActivity" label="@string/2131952255" launchMode="singleTop" screenOrientation="portrait"/>
+        <activity android:name=".ui.onboarding.OnboardingStartActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.products.investing.pension.request.RequestPensionSavingActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017746" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.BooleanVariant" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name=".ui.onboarding.redirect.OnboardingRedirectUriReceiverActivity" noHistory="true" screenOrientation="unspecified" theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:pathPattern="/customers/onboarding.html" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:pathPattern="/universal-signing/redirect/identification.html" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.settings.SettingsActivity" label="@string/2131954248" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.dailylimits.DailyLimitsActivity" label="@string/2131954237" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.manageaccounts.ManageAccountsActivity" label="@string/2131952763" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.manageoverviewactions.ManageOverviewActionsActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.consents.ThirdPartyConsentsActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.namechange.NameChangeActivity" label="@string/2131952005" screenOrientation="portrait" theme="@style/2132017746" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.settings.language.LanguageActivity" label="@string/2131952035" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.userdata.OptInUserDataActivity" label="@string/2131954241" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.consent.ConsentManagementActivity" label="@string/2131952082" launchMode="singleTop" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.documents.channel.DocumentsChannelSettingsActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.changepin.ChangePinActivity" label="@string/2131952026" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.biometrics.BiometricsSettingsActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.appinfo.AppInfoActivity" label="@string/2131954196" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.documents.ImportantDocumentsActivity" label="@string/2131952896" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.settings.documents.LinksOverviewActivity" label="@string/2131952896" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.webview.WebViewActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017750"/>
+        <activity android:name=".ui.office.map.OfficeMapActivity" label="@string/2131953020" screenOrientation="portrait"/>
+        <activity android:name=".ui.office.finder.OfficeFinderActivity" label="@string/2131953022" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.navigation.NavigationActivity"/>
+        </activity>
+        <activity android:name=".ui.office.detail.OfficeDetailActivity" label="@string/2131952255" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.navigation.NavigationActivity"/>
+        </activity>
+        <activity android:name=".ui.login.LoginActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.generic.amount.AmountActivity" label="@string/2131954487" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.generic.number.InputNumberActivity" label="@string/2131954367" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name=".ui.generic.account.AccountActivity" label="@string/2131954560" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.generic.beneficiary.BeneficiarySelectActivity" label="@string/2131954514" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.generic.beneficiary.list.BeneficiarySelectListActivity" label="@string/2131954513" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.generic.message.MessageActivity" label="@string/2131954581" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.ItsmeSigningActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.iptransfer.edit.TransferEditDateActivity" label="@string/2131954524" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.messages.detail.MessageDetailActivity" label="@string/2131952848" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.beneficiary.list.BeneficiariesActivity" label="@string/2131951846" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.beneficiary.form.BeneficiaryFormActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017746" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.setPaymentType" label="@string/2131952255" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.generic.address.AddressFormActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017752" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.cards.overview.CardsActivity" label="" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.getSavingGoalsUiModel" label="" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.cards.scoring.RequestCreditCardScoringInfoActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.cards.scoring.ScoringRejectedActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.cards.request.comparison.CardsComparisonActivity" label="@string/2131954100" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.request.details.CardRequestDetailsActivity" label="@string/2131954050" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.request.legal.CardRequestLegalActivity" label="@string/2131954050" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.scoring.CardLimitScoringInfoActivity" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.settings.usage.debit.DebitCardSettingsActivity" label="@string/2131952255" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.settings.usage.credit.CreditCardSettingsActivity" label="@string/2131952255" screenOrientation="portrait"/>
+        <activity android:name="o.TransactionsListFragment" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.TargetPreviewManager$1" label="@string/2131952255" launchMode="singleTop" parentActivityName=".ui.transactions.TransactionsOverviewActivity" screenOrientation="unspecified" theme="@style/2132017747">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.transactions.TransactionsOverviewActivity"/>
+        </activity>
+        <activity android:name="o.TargetPrefetchResult" label="@string/2131952255" launchMode="singleTop" parentActivityName=".ui.transactions.TransactionsOverviewActivity" screenOrientation="unspecified" theme="@style/2132017747">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.transactions.TransactionsOverviewActivity"/>
+        </activity>
+        <activity android:name=".ui.transactions.TransactionsOverviewActivity" label="@string/2131952255" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait" theme="@style/2132017746">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.navigation.NavigationActivity"/>
+        </activity>
+        <activity android:name=".ui.transactions.search.SearchTransactionsActivity" label="@string/2131952255" parentActivityName=".ui.transactions.TransactionsOverviewActivity" screenOrientation="portrait" theme="@style/2132017746" windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.transactions.TransactionsOverviewActivity"/>
+        </activity>
+        <activity android:name=".ui.pdfviewer.PdfViewerActivity" label="@string/2131952255" theme="@style/2132017750"/>
+        <activity android:name=".ui.legalagreement.LegalAgreementActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.biometrics.info.BiometricsInfoActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.products.investing.pension.detail.PensionDetailActivity" label="@string/2131953579" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.investing.pension.detail.PensionSavingIncreaseActivity" parentActivityName=".ui.products.investing.pension.detail.PensionDetailActivity" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.products.investing.pension.transfer.PensionSavingTransferActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.products.investing.detail.InvestmentProductDetailActivity" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.investing.investmentinsurance.InvestmentInsuranceDetailActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.products.investing.investmentinsurance.InvestmentInsuranceContractDetailsActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.products.investing.investmentinsurance.branchinsurance.BranchInsuranceDetailActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.products.investing.investment.InvestmentCategoryActivity" label="" launchMode="singleTop" screenOrientation="portrait"/>
+        <activity android:name="o.EventHub$ProcessorCallable" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.investing.investment.categorydetail.InvestmentCategoryDetailActivity" label="" launchMode="singleTop" parentActivityName=".ui.products.investing.investment.InvestmentCategoryActivity" screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.products.investing.investment.InvestmentCategoryActivity"/>
+        </activity>
+        <activity android:name=".ui.products.investing.investment.categorydetail.InvestmentCashDetailActivity" label="" parentActivityName=".ui.products.investing.investment.InvestmentCategoryActivity" screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.products.investing.investment.InvestmentCategoryActivity"/>
+        </activity>
+        <activity android:name=".ui.products.investing.investment.investmentDetail.InvestmentDetailActivity" label="" parentActivityName=".ui.products.investing.investment.InvestmentCategoryActivity" screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.products.investing.investment.InvestmentCategoryActivity"/>
+        </activity>
+        <activity android:name=".ui.transactions.standingorders.StandingOrdersActivity" label="@string/2131954402" screenOrientation="portrait"/>
+        <activity android:name=".ui.generic.frequency.FrequencyActivity" label="@string/2131954360" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.transactions.directdebits.DirectDebitsActivity" screenOrientation="portrait"/>
+        <activity android:name=".ui.transactions.directdebits.detail.DirectDebitDetailActivity" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.transactions.directdebits.collection.DirectDebitCollectionActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.transactions.standingorders.StandingOrderDetailActivity" label="@string/2131954364" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.signing.StartSigningActivity" label="@string/2131952255" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name=".ui.signing.select.SelectSigningTypeActivity" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.signing.button.ButtonSigningActivity" label="@string/2131952255" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name=".ui.signing.pin.PinSigningActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.signing.digipass.DigipassSigningActivity" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.signing.itsme.ItsmeSigningActivity" enabled="@bool/2131034116" label="@string/2131952255" launchMode="singleTop" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.signing.redirect.RedirectSigningActivity" label="@string/2131952255" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.TargetOrder$1" label="@string/2131952255" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.signing.sms.SmsSigningActivity" label="" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="o.ManageOverviewActionsActivity" label="@string/2131952255" screenOrientation="unspecified" theme="@style/2132017749"/>
+        <activity android:name=".ui.generic.stepScreen.FireInsuranceSim.FireInsuranceSimActivity" label="@string/2131952514" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.buildItemModel" label="Meer info" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.products.simulation.vzw.VzwSimulationSummaryActivity" label="" screenOrientation="portrait"/>
+        <activity android:name="o.EventHubConstants$EventDataKeys" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.simulation.resume.ResumeSimulationActivity" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name=".ui.products.simulation.start.SimulationStartActivity" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name=".ui.products.simulation.info.SimulationInfoActivity" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.simulation.installmentLoan.InstallmentLoanSimulationActivity" label="" screenOrientation="portrait"/>
+        <activity android:name="o.SignalExtension" label="" screenOrientation="portrait"/>
+        <activity android:name=".ui.cards.settings.limit.CardLimitSettingsActivity" label="" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.bindSettingRelay" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.products.simulation.summary.SimulationSummaryActivity" label="" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait" windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.navigation.NavigationActivity"/>
+        </activity>
+        <activity android:name="o.ButtonSigningActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.DirectDebitCollectionActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.showPlaceholder" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.getPlaceholderPosition" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.generic.countrypicker.CountryPickerActivity" label="" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name=".ui.documents.channel.DocumentsChannelCampaignActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.campaign.ValidatePersonInformationCampaignActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017752"/>
+        <activity android:name="o.AppInfoController" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.StartSigningActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name="o.NameChangeActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.iptransfer.IPTransferActivity" label="" parentActivityName=".ui.navigation.NavigationActivity" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name="o.isSection" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.V4ToV5Migration$V5$Configuration" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.TargetListenerRequestReset" label="" screenOrientation="portrait"/>
+        <activity android:name="o.VariantException" hardwareAccelerated="false" label="" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name=".ui.sparkcentral.MessagingActivity" configChanges="orientation|screenSize" label="" launchMode="singleTask" parentActivityName=".ui.navigation.NavigationActivity" theme="@style/2132017810">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.navigation.NavigationActivity"/>
+        </activity>
+        <activity android:name=".ui.generic.psd2.StartUrlIntentActivity" noHistory="true" screenOrientation="unspecified" theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile-api.argenta.be" android:path="/idhub/oidc/v1/authorize" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity-alias enabled="false" name="be.argenta.bankieren.ui.generic.psd2.StartUrlIntentActivityAlias" noHistory="true" screenOrientation="unspecified" targetActivity=".ui.generic.psd2.StartUrlIntentActivity" theme="@android:style/Theme.NoDisplay">
+            <intent-filter autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data host="login.payments.argenta.be" path="/psd2/v1/berlingroup-auth/authorise" scheme="https"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name=".ui.transactions.request.check.CheckAccountCreationAllowedActivity" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name=".ui.transactions.request.RequestESavingsAccountActivity" screenOrientation="portrait"/>
+        <activity android:name=".ui.products.request.vzw.VzwPlusRequestActivity" parentActivityName="o.EventHub$ProcessorCallable" screenOrientation="portrait"/>
+        <activity android:name="o.SelectSigningTypeActivity$Controller" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.transactions.nickname.ChangeNickNameActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.feedback.FeedbackActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747" windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.biometrics.register.BiometricsRegistrationActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.savingsgoal.SavingsGoalActivity" label="" launchMode="singleTop" screenOrientation="portrait" theme="@style/2132017751" windowSoftInputMode="adjustPan"/>
+        <activity android:name="o.Target" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.savingsgoal.step.imageselector.SavingsGoalsImageSelectionActivity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.products.details.ProductCoverageActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.cards.action.CardActionRequestDetailActivity" screenOrientation="portrait"/>
+        <activity android:name="o.VariantSerializer" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017752"/>
+        <activity android:name="o.getShowDevInfo" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017752"/>
+        <activity android:name=".ui.cards.action.CardLostOrStolenInfoActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.setAndroidVersion" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.products.mortgageloan.MortgageLoanWithdrawalRequestActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.products.insurance.DamageClaimDetailActivity" label="" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.registration.QuickRegistrationActivity" label="" screenOrientation="portrait" theme="@style/2132017751"/>
+        <activity android:name=".ui.packages.selection.PackageSelectorActivity" label="" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.EventDataKeys$Acquisition" label="" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.Variant$1" label="" screenOrientation="portrait" theme="@style/2132017752"/>
+        <activity android:name=".ui.packages.scoring.PackageCardScoringActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.EventHub$1" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.packages.recap.PackageRecapActivity" label="" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.packages.legal.PackageLegalActivity" label="" parentActivityName=".ui.cards.overview.CardsActivity" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.packages.startcardrequest.StartCardRequestActivity" screenOrientation="unspecified" theme="@style/2132017748"/>
+        <activity android:name="o.TransactionsOverviewAccountsController" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name="o.EventHub$3$1" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <activity android:name=".ui.packages.scoring.PackageCardLimitScoringInfoActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name=".ui.packages.limit.PackageCardLimitSettingActivity" label="" screenOrientation="portrait" theme="@style/2132017746"/>
+        <activity android:name="o.DispatcherIdentityResponseIdentityIdentity" label="" launchMode="singleTop" screenOrientation="unspecified" theme="@style/2132017747"/>
+        <service exported="false" name=".data.service.GetAndSaveOfficesService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider authorities="be.argenta.bankieren.provider" exported="false" grantUriPermissions="true" name="o.getSubtitle">
+            <meta-data name="android.support.FILE_PROVIDER_PATHS" resource="@xml/2132148226"/>
+        </provider>
+        <activity android:name="com.microblink.activity.PhotopayActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.OcrLineScanActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.DocumentScanActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.BarcodeScanActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.FieldByFieldScanActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.DocumentVerificationActivity" configChanges="orientation|screenSize" screenOrientation="nosensor"/>
+        <activity android:name="com.microblink.activity.BlinkCardActivity" configChanges="orientation|screenSize" screenOrientation="portrait"/>
+        <activity android:name="com.microblink.activity.BlinkIdActivity" configChanges="orientation|screenSize" screenOrientation="sensor"/>
+        <activity android:name="com.microblink.activity.DocumentCaptureActivity" configChanges="orientation|screenSize" screenOrientation="sensor"/>
+        <activity android:name="androidx.biometric.DeviceCredentialHandlerActivity" exported="true" theme="@style/2132017444"/>
+        <activity android:name="com.sparkcentral.ui.NotificationActivity" launchMode="singleTask" theme="@style/2132017812"/>
+        <activity android:name="com.sparkcentral.ui.ConversationActivity" configChanges="orientation|screenSize" label="@string/2131951621" launchMode="singleTask" theme="@style/2132017810"/>
+        <activity android:name="com.sparkcentral.ui.widget.ImageActivity" theme="@style/2132017740"/>
+        <receiver exported="false" name="com.sparkcentral.ui.notification.NotificationReceiver">
+            <intent-filter>
+                <action android:name="com.sparkcentral.NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" excludeFromRecents="true" exported="false" theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service exported="true" name="com.google.android.gms.auth.api.signin.RevocationBoundService" permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" visibleToInstantApps="true"/>
+        <service exported="false" name="com.sparkcentral.core.service.SparkcentralService"/>
+        <service name="com.sparkcentral.core.FcmService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service directBootAware="true" exported="false" name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter priority="-4">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service directBootAware="true" exported="false" name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.iid.Registrar" value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service exported="false" name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data name="backend:com.google.android.datatransport.cct.CctBackendFactory" value="cct"/>
+        </service>
+        <service exported="false" name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver exported="false" name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <receiver exported="true" name="com.google.firebase.iid.FirebaseInstanceIdReceiver" permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" exported="false" theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider authorities="be.argenta.bankieren.firebaseinitprovider" directBootAware="true" exported="false" initOrder="100" name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver enabled="true" exported="true" name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service enabled="true" exported="false" name="com.google.android.gms.measurement.AppMeasurementJobService" permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" enabled="false" exported="false" launchMode="singleInstance" process=":playcore_missing_splits_activity" stateNotNeeded="true"/>
+        <activity android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" enabled="false" exported="false" stateNotNeeded="true" theme="@style/2132017808"/>
+        <service enabled="false" exported="true" name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

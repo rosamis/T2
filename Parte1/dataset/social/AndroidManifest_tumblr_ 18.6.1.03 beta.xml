@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.tumblr" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <permission android:name="com.tumblr.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.tumblr.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.tumblr.SERVICE_PERMISSION" android:protectionLevel="normal"/>
+    <uses-permission android:name="com.tumblr.SERVICE_PERMISSION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.TOUCHSCREEN" android:required="false"/>
+    <permission android:name="com.tumblr.permissions.RECEIVER" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.tumblr.permissions.RECEIVER"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/tumblr_app_name" android:largeHeap="true" android:name="com.tumblr.App" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:supportsRtl="false" android:theme="@style/Theme.Tumblr" android:usesCleartextTraffic="true">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="com.tumblr.posts.PaywallTourGuideActivity" android:screenOrientation="portrait" android:theme="@style/PaywallTourGuideTheme"/>
+        <activity android:name="com.tumblr.onboarding.auth.RegistrationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr"/>
+        <activity android:name="com.tumblr.onboarding.auth.AccountCompletionActivity" android:screenOrientation="portrait" android:theme="@style/Onboarding"/>
+        <activity android:name="com.tumblr.onboarding.auth.PreOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/Onboarding"/>
+        <activity android:label="" android:name="com.tumblr.onboarding.OnboardingCategoryActivity" android:screenOrientation="portrait" android:theme="@style/Onboarding.Categories" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.tumblr.onboarding.OnboardingRecommendedBlogsActivity" android:screenOrientation="portrait" android:theme="@style/Onboarding.Blogs" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.tumblr.onboarding.OnboardingInterstitialActivity" android:screenOrientation="portrait" android:theme="@style/Onboarding.Interstitial" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.view.GroupChatActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.management.GroupChatMembershipActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.creation.GroupChatCreationActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.invite.GroupChatInviteActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Light" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.invite.GroupChatPendingInvitesActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Light" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.join.GroupChatJoinRequestsActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Light" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="@string/membership_settings_creator_profile_title" android:name="com.tumblr.memberships.CreatorProfileActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/membership_settings_creator_profile_price_title" android:name="com.tumblr.memberships.CreatorProfilePriceActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/membership_settings_deactivate_title" android:name="com.tumblr.memberships.DeactivatePaywallActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/membership_settings" android:name="com.tumblr.memberships.ReactivatePaywallActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/subscriptions_settings" android:name="com.tumblr.memberships.SubscriptionsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar"/>
+        <activity android:label="@string/subscribers_settings" android:name="com.tumblr.memberships.SubscribersActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar"/>
+        <provider android:authorities="com.tumblr" android:exported="false" android:label="Tumblr" android:name="com.tumblr.content.TumblrProvider" android:syncable="true"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="ignore_ssl_errors" android:value="false"/>
+        <meta-data android:name="LOCALYTICS_APP_KEY" android:value="548633f9025b285edd55b55-81ac2cb8-09bf-11e3-8daf-005cf8cbabd8"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/FACEBOOK_APP_ID"/>
+        <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
+        <activity android:name="com.tumblr.ui.activity.JumpoffActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.facebook.orca.category.PLATFORM_THREAD_20150314"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Root"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tumblr.ui.activity.WebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.onboarding.OnboardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon"/>
+        <activity android:name="com.tumblr.ui.activity.GraywaterTrendingTopicActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon"/>
+        <activity android:name="com.tumblr.ui.activity.SimpleTimelineActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon"/>
+        <activity android:name="com.tumblr.ui.activity.BlogHeaderTimelineActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon"/>
+        <activity android:name="com.tumblr.ui.activity.RidiculousCroppingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.RidiculousCrop"/>
+        <activity android:name="com.tumblr.ui.activity.BlogPagesActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Blog">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.activity.RootActivity"/>
+        </activity>
+        <activity android:label="@string/answertime" android:name="com.tumblr.answertime.AnswertimeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Answertime"/>
+        <activity android:name="com.tumblr.ui.activity.GraywaterTakeoverActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar"/>
+        <activity android:name="com.tumblr.ui.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tumblr.ui.activity.GraywaterBlogSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:label="@string/hint_inblog_search" android:name="com.tumblr.ui.widget.blogpages.search.InblogSearchActivity" android:screenOrientation="portrait" android:theme="@style/BlogTagsSearch" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.PostPermalinkTimelineActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar"/>
+        <activity android:label="@string/ask" android:name="com.tumblr.ui.activity.AskActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBarNoIcon" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/edit_appearance" android:name="com.tumblr.ui.activity.CustomizeOpticaBlogPagesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/drafts_title" android:name="com.tumblr.ui.activity.GraywaterDraftsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar"/>
+        <activity android:label="@string/followers_title" android:name="com.tumblr.ui.activity.FollowerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/blocked_tumblrs_title" android:name="com.tumblr.ui.activity.BlockedTumblrsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/inbox_title" android:name="com.tumblr.ui.activity.GraywaterInboxActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.activity.RootActivity"/>
+        </activity>
+        <activity android:label="@string/setting_label_filter" android:name="com.tumblr.ui.activity.FilterSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/setting_media_autoplay" android:name="com.tumblr.ui.activity.MediaAutoplaySettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/setting_label_blog_privacy_title" android:name="com.tumblr.ui.activity.BlogPrivacySettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/setting_label_theme" android:name="com.tumblr.ui.activity.AppThemeSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/pages" android:name="com.tumblr.ui.activity.blog.BlogPagesSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Transparent"/>
+        <activity android:label="@string/title_activity_labs" android:name="com.tumblr.labs.view.LabsSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/title_activity_labs" android:name="com.tumblr.labs.view.LabsSettingsMVVMActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:name="com.tumblr.ui.activity.FullScreenCameraActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.FullScreenCameraPreviewActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.FullScreenEditorActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/queue_title" android:name="com.tumblr.ui.activity.GraywaterQueuedActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar"/>
+        <activity android:label="@string/settings" android:name="com.tumblr.settings.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/settings" android:name="com.tumblr.settings.SettingPossibleValuesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:label="@string/settings" android:name="com.tumblr.settings.ParentSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/membership_settings" android:name="com.tumblr.settings.MembershipsSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.PushSettings"/>
+        <activity android:name="com.tumblr.rating.RatingMoodActivity" android:theme="@style/Theme.Tumblr.NoActionBar.Rating"/>
+        <activity android:name="com.tumblr.rating.RatingPromptActivity" android:theme="@style/Theme.Tumblr.NoActionBar.Rating"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tumblr.video.tumblrvideoplayer.TumblrVideoActivity" android:screenOrientation="fullUser" android:theme="@style/Theme.Tumblr.NoActionBar.VideoPlayer"/>
+        <activity android:name="com.tumblr.ui.activity.PostActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.Post" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.tumblr.posts.postform.CanvasActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/CanvasTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.tumblr.posts.advancedoptions.APOActivity" android:screenOrientation="portrait" android:theme="@style/AdvancedPostOptions" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.tumblr.posts.tagsearch.TagSearchActivity" android:screenOrientation="portrait" android:theme="@style/TagSearchTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.tumblr.ui.activity.GalleryActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.Gallery"/>
+        <activity android:name="com.tumblr.ui.activity.GalleryPreviewActivity" android:screenOrientation="fullUser" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.tumblr.ui.activity.AudioPostSearchActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/AudioPostSearch" android:windowSoftInputMode="adjustResize"/>
+        <activity android:hardwareAccelerated="false" android:label="@string/tumblr_app_name" android:name="com.tumblr.ui.fragment.dialog.AvatarChooseAndCropActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.tumblr.onboarding.RegistrationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.MagicLinkSentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.onboarding.progressive.ProgressiveRegistrationAgeAndTermsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.tumblr.onboarding.progressive.AccountCompletionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.tumblr.settings.account.BlogNameChangeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.Onboarding.NameChange" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.onboarding.TokenExchangeInterimActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar"/>
+        <activity android:name="com.tumblr.ui.activity.PostNotesTimelineActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SimpleActivityNoIcon" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.inbox.GroupChatInboxActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Inbox" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.inbox.GroupChatInboxJoinRequestsActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Inbox.Notification" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:label="" android:name="com.tumblr.groupchat.inbox.GroupChatInboxInvitesActivity" android:screenOrientation="portrait" android:theme="@style/GroupChat.Inbox.Notification" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.tumblr.ui.activity.RollupNotesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SimpleActivityNoIcon" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:name="com.tumblr.ui.activity.ActivityNotificationRollupActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SimpleActivityNoIcon" android:windowSoftInputMode="stateUnchanged"/>
+        <activity android:name="com.tumblr.ui.activity.PhotoLightboxActivity" android:screenOrientation="fullUser" android:theme="@style/Theme.Tumblr.NoActionBar"/>
+        <activity android:label="@string/message_a_tumblr" android:name="com.tumblr.messenger.ChooseParticipantsActivity" android:screenOrientation="portrait" android:theme="@style/ChooseParticipants">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value="com.tumblr.messenger.MessagingTargetService"/>
+        </activity>
+        <activity android:label="@string/label_conversation" android:launchMode="singleTask" android:name="com.tumblr.messenger.ConversationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.tumblr.ui.activity.TopicsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr"/>
+        <activity android:name="com.tumblr.ui.activity.OauthAuthorizeActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tumblr.ui.activity.WebsiteInterceptActivity" android:noHistory="true" android:theme="@style/Theme.Tumblr.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="tumblr"/>
+                <data android:host="tumblr.net"/>
+                <data android:host="tumblr.com"/>
+                <data android:host="www.tumblr.com"/>
+                <data android:host="www.tumblr.net"/>
+                <data android:pathPrefix="/download/android"/>
+                <data android:pathPrefix="/follow/"/>
+                <data android:pathPrefix="/oauth/authorize"/>
+                <data android:pathPrefix="/message/"/>
+                <data android:pathPrefix="/explore/answertime"/>
+                <data android:pathPrefix="/explore"/>
+                <data android:pathPrefix="/likes"/>
+                <data android:pathPrefix="/share/post"/>
+                <data android:pathPrefix="/new"/>
+                <data android:pathPrefix="/new/audio"/>
+                <data android:pathPrefix="/new/chat"/>
+                <data android:pathPrefix="/new/link"/>
+                <data android:pathPrefix="/new/photo"/>
+                <data android:pathPrefix="/new/quote"/>
+                <data android:pathPrefix="/new/text"/>
+                <data android:pathPrefix="/new/video"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="tumblr.com"/>
+                <data android:host="www.tumblr.com"/>
+                <data android:pathPrefix="/authenticate"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tumblr-auth"/>
+                <data android:host="x-callback-url"/>
+                <data android:pathPrefix="/oauth/authorize"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*.tumblr.com" android:scheme="http"/>
+                <data android:host="*.tumblr.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tumblr.ui.appwidget.ChoosePostWidgetConfigure" android:theme="@style/AppWidgetConfigureDialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="@string/post_to_tumblr" android:name="com.tumblr.creation.receiver.ShareActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tumblr.ui.activity.GifSearchActivity" android:screenOrientation="portrait" android:theme="@style/GifSearchResults" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.GifSearchPreviewActivity" android:screenOrientation="fullUser" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tumblr.settings.account.SingleLineFormActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_blog_settings" android:name="com.tumblr.ui.activity.BlogSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Transparent" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/title_linked_accounts" android:name="com.tumblr.ui.activity.LinkedAccountsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.SolidActionBar.Follower" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="" android:name="com.tumblr.ui.activity.InvisibleLinkAccountActivity" android:theme="@style/Theme.Tumblr.Invisible"/>
+        <activity android:name="com.tumblr.onboarding.PreOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.PreOnboardPhotoSlide" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/create_new_tumblr" android:name="com.tumblr.ui.widget.blogpages.CreateBlogActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.CreateBlog" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.tumblr.ui.activity.blog.BlogPagesPreviewActivity" android:parentActivityName="com.tumblr.ui.activity.blog.BlogPagesSettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.Blog">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.activity.blog.BlogPagesSettingsActivity"/>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.tumblr.guce.GuceActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tumblr.guce.GuceSingleInstanceActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:label="@string/posts_review_screen_title" android:name="com.tumblr.blog.projectx.PostsReviewActivity" android:parentActivityName="com.tumblr.ui.activity.RootActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar.DarkStatusBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ui.activity.RootActivity"/>
+        </activity>
+        <activity android:name="com.tumblr.communityhubs.CommunityHubActivity" android:screenOrientation="portrait" android:theme="@style/CommunityHub"/>
+        <activity android:name="com.tumblr.tagmanagement.TagManagementActivity" android:screenOrientation="portrait" android:theme="@style/CommunityHub"/>
+        <activity android:name="com.tumblr.components.audioplayer.ReblogPostActionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Tumblr.NoActionBar"/>
+        <receiver android:label="@string/appwidget_choose_post_label" android:name="com.tumblr.ui.appwidget.ChoosePostWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_choose_post"/>
+        </receiver>
+        <service android:name="com.tumblr.messenger.MessagingTargetService" android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.tumblr.receiver.ShareBroadcastReceiver"/>
+        <receiver android:name="com.tumblr.receiver.CopyLinkBroadcastReceiver"/>
+        <receiver android:name="com.tumblr.receiver.HubShareBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.tumblr.service.notification.UserNotificationStagingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.tumblr.posts.outgoing.PostingService"/>
+        <service android:name="com.tumblr.blog.customize.CustomizeService"/>
+        <service android:name="com.tumblr.service.crash.CrashReportingService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.tumblr.messenger.network.MessageNotificationReceiver" android:permission="com.tumblr.permissions.RECEIVER">
+            <intent-filter android:priority="0">
+                <action android:name="com.tumblr.ACTION_CHECK_MESSAGES"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tumblr.receiver.GroupChatConvoNotificationReceiver" android:permission="com.tumblr.permissions.RECEIVER">
+            <intent-filter android:priority="0">
+                <action android:name="com.tumblr.ACTION_GROUP_CHAT_DEEPLINK_NOTIF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.tumblr.notes.ConversationalNotificationReceiver" android:permission="com.tumblr.permissions.RECEIVER">
+            <intent-filter android:priority="0">
+                <action android:name="com.tumblr.ACTION_NEW_NOTES"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.receiver.NotificationActionReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.posts.outgoing.DiscardPostReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.posts.outgoing.RetryPostReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.posts.outgoing.NPSRetryPostReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.posts.outgoing.NPSDiscardPostReceiver"/>
+        <service android:name="com.tumblr.service.notification.BlogUnsubscribeService"/>
+        <service android:exported="false" android:name="com.tumblr.commons.KeepAliveService"/>
+        <service android:label="Prefetch Metrics Service" android:name="com.tumblr.service.prefetch.PrefetchDashboardJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.tumblr.fcm.FCMTokenRegistrarJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.tumblr.fcm.TumblrFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.tumblr.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <receiver android:enabled="true" android:exported="false" android:name="com.tumblr.service.notification.UserNotificationActionEnqueuingReceiver"/>
+        <receiver android:exported="false" android:name="com.tumblr.receiver.SelectedAppReceiver"/>
+        <provider android:authorities="com.tumblr.KanvasFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.tumblr.kanvas.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/kanvas_paths"/>
+        </provider>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.tumblr.social.twitter.sdk.core.identity.OAuthActivity"/>
+        <service android:enabled="true" android:exported="false" android:name="com.tumblr.components.audioplayer.TumblrAudioPlayerService" android:stopWithTask="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_fullscreen" android:name="com.tumblr.video.FullScreenVideoActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.verizon.ads.interstitialvastadapter.VASTActivity" android:theme="@style/Theme.VASAdsTransparent"/>
+        <activity android:configChanges="layoutDirection|locale" android:name="com.verizon.ads.interstitialwebadapter.WebViewActivity" android:theme="@style/Theme.VASAdsTransparent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.verizon.ads.webview.MRAIDExpandedActivity" android:theme="@style/Theme.VASTransparent"/>
+        <activity android:label="@string/title_activity_playable_moments" android:name="com.oath.mobile.ads.sponsoredmoments.ui.component.PlayableMomentsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoTitle"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.yahoo.mobile.client.android.yvideosdk.ui.presentation.FullscreenVideoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.yahoo.mobile.client.android.yvideosdk.ui.lightbox.LightboxActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:taskAffinity="com.yahoo.mobile.client.android.yvideosdk.pip" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.yahoo.mobile.client.android.yvideosdk.cast.CastOptionsProvider"/>
+        <activity android:exported="true" android:multiprocess="true" android:name="androidx.fragment.app.testing.FragmentScenario$EmptyFragmentActivity" android:taskAffinity="" android:theme="@style/FragmentScenarioEmptyFragmentActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.verizondigitalmedia.mobile.client.android.player.ui.FullscreenVideoActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.brandio.ads.DioActivity"/>
+        <activity android:name="com.brandio.ads.device.PermissionsHandler"/>
+        <activity android:name="com.brandio.ads.UnityActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.brandio.ads.DioTranslucentActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <provider android:authorities="com.tumblr.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
+        <activity android:name="com.microsoft.appcenter.distribute.DeepLinkActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="updates" android:path="/" android:scheme="appcenter"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.microsoft.appcenter.distribute.DownloadManagerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService">
+            <meta-data android:name="com.google.android.play.core.assetpacks.versionCode" android:value="10901"/>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"/>
+        <provider android:authorities="com.tumblr.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.tumblr.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity" android:theme="@android:style/Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity" android:theme="@android:style/Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:configChanges="locale|orientation|screenSize" android:name="com.yahoo.mobile.client.share.android.ads.core.feedback.FeedbackActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.flurry.android.ymadlite.widget.video.view.FullScreenVideoAdPlayerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.flurry.android.marketing.messaging.FCM.FlurryMessageListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.flurry.android.marketing.messaging.FCM.FlurryInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.flurry.android.marketing.messaging.notification.NotificationCancelledReceiver"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryTileAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryBrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

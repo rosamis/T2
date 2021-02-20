@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.apartmentlist.mobile" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:killAfterRestore="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.apartmentlist.App" android:supportsRtl="true" android:theme="@style/AppTheme.Light">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.apartmentlist.fcm.PushDismissReceiver"/>
+        <receiver android:name="com.apartmentlist.fcm.PushActionPhoneReceiver"/>
+        <service android:name="com.apartmentlist.fcm.AlFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:launchMode="singleTask" android:name="com.apartmentlist.ui.landing.LandingActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.apartmentlist.com"/>
+                <data android:host="apartmentlist.com"/>
+                <data android:pathPattern="/profile"/>
+                <data android:pathPattern="/matches"/>
+                <data android:pathPattern="/shortlist"/>
+                <data android:pathPattern="/messages"/>
+                <data android:pathPattern="/messages/.*"/>
+                <data android:pathPattern="/listing"/>
+                <data android:pathPattern="/magic_login"/>
+                <data android:pathPattern="/content"/>
+                <data android:pathPattern="/rent_calculator"/>
+                <data android:pathPattern="/quiz"/>
+                <data android:pathPattern="/../.*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.apartmentlist.ui.login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.quiz.QuizActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.quiz.commute.CommuteLocationSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.apartmentlist.ui.main.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.categorymap.CategoryMapActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.apartmentlist.ui.listing.ListingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.apartmentlist.ui.listingdetails.ListingDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.apartmentlist.ui.nopelist.NopeListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.preferences.PreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.personal.PersonalInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.apartment.ApartmentPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.location.LocationPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.location.AddLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.location.NeighborhoodPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.commute.CommutePreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.profile.notifications.NotificationPreferencesActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.photos.PhotosActivity" android:theme="@style/AppTheme.Photos"/>
+        <activity android:name="com.apartmentlist.ui.photos.ListingPhotosActivity" android:theme="@style/AppTheme.Photos.DragDismissable"/>
+        <activity android:name="com.apartmentlist.ui.gallery.PhotoGalleryActivity" android:theme="@style/AppTheme.PhotoGallery"/>
+        <activity android:name="com.apartmentlist.ui.map.MapActivity"/>
+        <activity android:name="com.apartmentlist.ui.floorplan.FloorplanActivity" android:theme="@style/AppTheme.DragDismissable"/>
+        <activity android:name="com.apartmentlist.ui.feedback.FeedbackMessageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.experiments.ExperimentsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.cycling.CyclingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.cycling.detail.CyclingDetailCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.contenthost.ContentHostActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.rentcalculator.RentCalculatorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.tutorial.TutorialActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.reactivation.ReactivationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.tour.TourActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.apartmentlist.ui.message.MessageActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.apartmentlist.ui.singlefloorplan.SingleFloorplanActivity" android:theme="@style/AppTheme.PhotoGallery"/>
+        <activity android:name="com.apartmentlist.ui.ldp.qualification.QualificationActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.apartmentlist.ui.virtualtour.VirtualTourActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:name="com.apartmentlist.ui.video.VideoActivity" android:theme="@style/AppTheme.Video"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.com.apartmentlist.mobile" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.apartmentlist.mobile.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:launchMode="singleTask" android:name="com.patloew.rxlocation.LocationSettingsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.apartmentlist.mobile.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="com.apartmentlist.mobile.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
