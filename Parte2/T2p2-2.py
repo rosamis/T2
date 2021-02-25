@@ -11,7 +11,8 @@ def getSections(file_path):
 
     return pe_sections
 
-def main(argv):
+if __name__ == "__main__":
+    argv = sys.argv[1:]
     first_path = argv[0]
     second_path = argv[1]
 
@@ -37,6 +38,3 @@ def main(argv):
     print("Permissões comuns dos PEs\n")
     print("=========================\n")
     print(list(intersection))
-
-if __name__ == "__main__":
-    main(sys.argv[1:])
